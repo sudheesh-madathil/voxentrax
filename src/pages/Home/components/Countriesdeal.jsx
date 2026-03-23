@@ -89,8 +89,8 @@ export default function CountryScroller() {
       {/* ── Base background ── */}
       <div style={{
         position: "absolute", inset: 0, zIndex: 0,
-        background: "linear-gradient(135deg, #054f5e 0%, #06768d 50%, #079ab8 100%)",
-      }} />
+background:
+  "linear-gradient(135deg, #065f73 0%, #0891b2 50%, #22d3ee 100%)",      }} />
 
       {/* ── Scattered floating icons & rings ── */}
       <div style={{ position: "absolute", inset: 0, zIndex: 1, pointerEvents: "none" }}>
@@ -151,8 +151,8 @@ export default function CountryScroller() {
       {/* Soft edge vignette */}
       <div style={{
         position: "absolute", inset: 0, zIndex: 2, pointerEvents: "none",
-        background: "radial-gradient(ellipse at 50% 50%, transparent 35%, rgba(3,40,48,0.5) 100%)",
-      }} />
+background:
+"radial-gradient(ellipse at 50% 50%, transparent 35%, rgba(3,60,72,0.55) 100%)",      }} />
 
       {/* ── Content ── */}
       <div style={{ position: "relative", zIndex: 10 }}>
@@ -162,7 +162,7 @@ export default function CountryScroller() {
           <h1 style={{ color: "#ffffff", fontSize: "2.25rem", fontWeight: 700, marginBottom: "1rem", lineHeight: 1.25 }}>
             Transforming Communication with VoIP Technology
           </h1>
-          <p style={{ color: "rgba(185,240,248,0.85)", fontSize: "1.125rem", maxWidth: "36rem", margin: "0 auto" }}>
+          <p style={{ color: "rgba(207,250,254,0.9)", fontSize: "1.125rem", maxWidth: "36rem", margin: "0 auto" }}>
             Discover how modern Voice over IP solutions are redefining business communication with speed, clarity, and scalability.
           </p>
         </div>
@@ -193,8 +193,8 @@ export default function CountryScroller() {
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.background = "rgba(255,255,255,0.15)";
-                  e.currentTarget.style.boxShadow = "0 0 0 1.5px rgba(255,255,255,0.45), 0 6px 28px rgba(0,0,0,0.25)";
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.45)";
+                  e.currentTarget.style.boxShadow = "0 0 0 1.5px rgba(34,211,238,0.6), 0 6px 28px rgba(0,0,0,0.25)";
+                  e.currentTarget.style.borderColor = "rgba(34,211,238,0.6)";
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.background = "rgba(255,255,255,0.08)";
