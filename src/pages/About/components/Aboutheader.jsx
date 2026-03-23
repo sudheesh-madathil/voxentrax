@@ -3,13 +3,16 @@ import { useState, useEffect } from "react";
 export default function VOIPAboutHeader() {
   const [tick, setTick] = useState(0);
   const [callSec, setCallSec] = useState(0);
+  const [activeLine, setActiveLine] = useState(0);
   const [packetIdx, setPacketIdx] = useState(0);
+console.log(activeLine);
 
   useEffect(() => {
     const t = setInterval(() => {
       setTick(p => p + 1);
       setCallSec(p => p + 1);
     }, 1000);
+    const l = setInterval(() => setActiveLine(p => (p + 1) % 4), 1800);
     const pk = setInterval(() => setPacketIdx(p => (p + 1) % 6), 600);
     return () => { clearInterval(t); clearInterval(l); clearInterval(pk); };
   }, []);

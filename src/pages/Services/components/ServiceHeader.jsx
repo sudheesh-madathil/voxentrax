@@ -69,21 +69,14 @@ const tabs = [
     },
 ];
 
-const features = [
-    { icon: "📞", label: "HD Voice Calls" },
-    { icon: "🔒", label: "Encrypted Calls" },
-    { icon: "🌍", label: "Global Coverage" },
-    { icon: "⚡", label: "99.9% Uptime" },
-];
-
 export default function VoipLanding() {
     const [activeTab, setActiveTab] = useState(0);
 
     return (
-        <div className="min-h-screen bg-white font-sans flex flex-col">
+        <div className="min-h-screen max-w-8xl w-full bg-white font-sans flex flex-col">
 
             {/* Hero Section */}
-            <main className="flex-1 flex flex-col lg:flex-row items-center gap-12 px-10 py-16 max-w-7xl mx-auto w-full">
+            <main className="flex-1 flex flex-col lg:flex-row items-center gap-12 px-20 py-16 mx-auto w-full">
 
                 {/* LEFT CONTENT */}
                 <div className="flex-1 flex flex-col gap-7 lg:pr-8">
@@ -116,9 +109,9 @@ export default function VoipLanding() {
                 </div>
 
                 {/* RIGHT — VOIP TABS */}
-                <div className="flex-1 flex flex-col items-center gap-6">
+                <div className="flex-1 flex flex-col items-center gap-8 w-full max-w-[550px]">
                     {/* VOIP Letter Cards */}
-                    <div className="flex gap-5 justify-center">
+                    <div className="flex gap-8 justify-center">
                         {tabs.map((tab, i) => (
                             <button
                                 key={i}
@@ -127,13 +120,13 @@ export default function VoipLanding() {
                             >
                                 {/* Letter tile */}
                                 <div
-                                    className="w-16 h-16 rounded-2xl flex items-center justify-center
-             font-black text-3xl text-gray-900 transition-all duration-300
-             border-2 rotate-45"
+                                    className="w-20 h-20 rounded-2xl flex items-center justify-center
+                    font-black text-4xl text-gray-900 transition-all duration-300
+                    border-2 rotate-45"
                                     style={{
                                         backgroundColor: activeTab === i ? "white" : "#f8f9fa",
                                         borderColor: tab.color,
-                                        boxShadow: activeTab === i ? `0 4px 20px ${tab.color}33` : "none",
+                                        boxShadow: activeTab === i ? `0 6px 25px ${tab.color}33` : "none",
                                         transform: activeTab === i
                                             ? "translateY(-15px) rotate(45deg)"
                                             : "translateY(-20px) rotate(45deg)",
@@ -143,48 +136,55 @@ export default function VoipLanding() {
                                         {tab.letter}
                                     </span>
                                 </div>
+
                                 {/* Color bar */}
                                 <div
-                                    className="w-20 h-28 rounded-b-xl transition-all duration-300 flex flex-col items-center justify-start pt-3 pb-4 gap-3"
+                                    className="w-28 h-36 rounded-b-xl transition-all duration-300 flex flex-col items-center justify-start pt-4 pb-5 gap-4"
                                     style={{
                                         backgroundColor: tab.color,
-                                        minHeight: "90px",
+                                        minHeight: "120px",
                                     }}
                                 >
-                                    <span className="text-white text-[10px] font-bold tracking-widest">{tab.word}</span>
-                                    {/* {activeTab === i && ( */}
-                                    <div className="opacity-100 transition-opacity duration-200">
+                                    <span className="text-white text-xs font-bold tracking-widest">
+                                        {tab.word}
+                                    </span>
+                                    <div className="opacity-100 transition-opacity duration-200 scale-125">
                                         {tab.icon}
                                     </div>
-                                    {/* )} */}
                                 </div>
                             </button>
                         ))}
                     </div>
 
                     {/* Active Tab Detail Card */}
-                    <div
-                        className="w-full max-w-sm rounded-2xl p-6 text-white transition-all duration-300"
-                        style={{ backgroundColor: tabs[activeTab].color }}
-                    >
-                        <div className="flex items-center gap-3 mb-3">
+<div
+  className="w-full max-w-3xl rounded-2xl p-8 text-white transition-all duration-300"
+  style={{ backgroundColor: tabs[activeTab].color }}
+>
+                        <div className="flex items-center gap-4 mb-4">
                             {tabs[activeTab].icon}
                             <div>
                                 <p className="text-white/60 text-xs font-bold tracking-widest uppercase">
                                     {tabs[activeTab].letter} — {tabs[activeTab].word}
                                 </p>
-                                <h3 className="text-white font-black text-xl">{tabs[activeTab].word}</h3>
+                                <h3 className="text-white font-black text-2xl">
+                                    {tabs[activeTab].word}
+                                </h3>
                             </div>
                         </div>
-                        <p className="text-white/80 text-sm leading-relaxed">{tabs[activeTab].desc}</p>
-                        <div className="mt-4 flex gap-2">
+
+                        <p className="text-white/80 text-base leading-relaxed">
+                            {tabs[activeTab].desc}
+                        </p>
+
+                        <div className="mt-5 flex gap-2">
                             {tabs.map((_, i) => (
                                 <button
                                     key={i}
                                     onClick={() => setActiveTab(i)}
-                                    className="h-1.5 rounded-full transition-all duration-300"
+                                    className="h-2 rounded-full transition-all duration-300"
                                     style={{
-                                        width: activeTab === i ? "28px" : "8px",
+                                        width: activeTab === i ? "32px" : "10px",
                                         backgroundColor: activeTab === i ? "white" : "rgba(255,255,255,0.3)",
                                     }}
                                 />
