@@ -421,7 +421,7 @@ useEffect(() => {
   <div className="anim-fade-up-2">
     <h1 className="font-['Syne',sans-serif] font-default text-4xl md:text-[2.6rem] leading-[1.08] tracking-relaxing text-gray-600">
       The Empower of
-      <span className="text-blue-400"> Telecommunication</span>
+        <span style={{ color: "#004c4c" }}> Telecommunication</span>
     </h1>
   </div>
 
@@ -429,28 +429,43 @@ useEffect(() => {
 <p className="text-gray-600 text-base leading-relaxed max-w-xl text-justify text-xm">
   Intelligent, cloud-powered telecom built for modern communication. Experience ultra-clear voice with AI optimization and real-time routing. Intelligent, cloud-powered telecom built for modern communication. Experience ultra-clear voice with AI optimization and real-time routing.
 </p>
+<div className="anim-fade-up-4 flex items-center gap-3 flex-wrap pt-1">
 
-  {/* CTA buttons */}
-  <div className="anim-fade-up-4 flex items-center gap-3 flex-wrap pt-1">
-
-  {/* 🔵 Primary Button (Blue) */}
-  <button className="inline-flex items-center gap-2 px-6 py-3 squared-xl text-white text-sm font-semibold 
-  bg-blue-400 hover:bg-blue-400 
-  transition-all duration-200 border-0 cursor-pointer">
-    
+  {/* 🔵 Primary Button (Theme Button) */}
+  <button
+    className="inline-flex items-center gap-2 px-6 py-3 squared-xl text-white text-sm font-semibold 
+    transition-all duration-200 border-0 cursor-pointer"
+    style={{ backgroundColor: "#004c4c" }}
+    onMouseEnter={(e) => (e.currentTarget.style.backgroundColor = "#003636")}
+    onMouseLeave={(e) => (e.currentTarget.style.backgroundColor = "#004c4c")}
+  >
     <PhoneIcon />
     Get Started
     <ArrowRight />
   </button>
 
-  {/* ⚪ Secondary Button (Gray) */}
-  <button className="inline-flex items-center gap-2 px-5 py-3 squared-xl text-sm font-medium 
-  text-gray-700 border border-gray-300 bg-gray-100 
-  hover:bg-gray-200 hover:border-gray-400 
-  transition-all duration-200 cursor-pointer">
-    
+  {/* ⚪ Secondary Button (Theme Outline) */}
+  <button
+    className="inline-flex items-center gap-2 px-5 py-3 squared-xl text-sm font-medium 
+    transition-all duration-200 cursor-pointer"
+    style={{
+      color: "#004c4c",
+      border: "1px solid #004c4c33",
+      backgroundColor: "#004c4c10",
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.backgroundColor = "#004c4c";
+      e.currentTarget.style.color = "#ffffff";
+      e.currentTarget.style.borderColor = "#004c4c";
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.backgroundColor = "#004c4c10";
+      e.currentTarget.style.color = "#004c4c";
+      e.currentTarget.style.borderColor = "#004c4c33";
+    }}
+  >
     <PlayIcon />
-   Learn More
+    Learn More
   </button>
 
 </div>
