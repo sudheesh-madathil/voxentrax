@@ -5,6 +5,7 @@ export default function VOIPAboutHeader() {
   const [callSec, setCallSec] = useState(0);
   const [activeLine, setActiveLine] = useState(0);
   const [packetIdx, setPacketIdx] = useState(0);
+console.log(activeLine);
 
   useEffect(() => {
     const t = setInterval(() => {

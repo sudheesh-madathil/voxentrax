@@ -1,6 +1,5 @@
 export default function ContactForm() {
   const BRAND = "#004c4c";
-  const BRAND_DARK = "#003333";
   const BRAND_LIGHT = "#e6f2f2";
 
   return (
