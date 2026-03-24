@@ -180,7 +180,7 @@ export default function AnimatedFooter() {
         </div>
 
         {/* ── Main Content ── */}
-        <div className="relative z-10 max-w-6xl mx-auto px-12 pt-12">
+        <div className="relative z-10 max-w-7xl mx-auto px-12 pt-12">
 
           {/* Logo */}
           <div className="slide-up-1 flex items-center gap-4 mb-9">

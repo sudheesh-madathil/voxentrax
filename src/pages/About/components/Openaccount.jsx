@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 
 const features = [
-  { icon: "📞", title: "Presence", desc: "Sit donec enim, amet ipsum in dummy content lorem ipsum." },
-  { icon: "📋", title: "Assignment", desc: "Sit donec enim, amet ipsum in dummy content lorem ipsum." },
-  { icon: "💳", title: "Bill Payment", desc: "Sit donec enim, amet ipsum in dummy content lorem ipsum." },
-  { icon: "📊", title: "KRS/KRSS", desc: "Sit donec enim, amet ipsum in dummy content lorem ipsum." },
-  { icon: "📝", title: "Final Exam", desc: "Sit donec enim, amet ipsum in dummy content lorem ipsum." },
-  { icon: "📅", title: "Events", desc: "Sit donec enim, amet ipsum in dummy content lorem ipsum." },
+  { icon: "📞", title: "HD Voice Calling", desc: "Crystal-clear voice quality with low latency global connections." },
+  { icon: "🌍", title: "Global Connectivity", desc: "Connect customers worldwide with reliable VoIP routing." },
+  { icon: "📊", title: "Call Analytics", desc: "Real-time insights and reporting for performance monitoring." },
+  { icon: "💳", title: "Automated Billing", desc: "Smart billing system with prepaid and postpaid support." },
+  { icon: "🔒", title: "Secure Network", desc: "Advanced encryption and fraud protection for all calls." },
+  { icon: "⚡", title: "Scalable Infrastructure", desc: "Grow your communication system without limitations." },
 ];
 
 export default function Features() {
@@ -50,30 +50,31 @@ export default function Features() {
       `}</style>
 
       {/* BLUE SECTION */}
-      <section className="animated-bg relative overflow-visible pt-20 px-6 h-[400px]">
-        
+<section className="animated-bg relative overflow-visible pt-20 px-6 h-[550px] flex flex-col flex-wrap items-center">        
         {/* Rings */}
        
 
-        <div className="relative z-10 max-w-6xl ml-auto mr-0 w-full flex flex-col lg:flex-row gap-10">
-
+<div className="relative z-10 max-w-[88rem] mr-0 w-full flex flex-col lg:flex-row gap-10">
           {/* LEFT TEXT */}
-          <div
-            className= {`lg:w-[30%] w-full ${visible ? "fade-up" : "opacity-0"}`}
-            style={{ animationDelay: "0.1s" }}
-          >
-            <h2 className="text-white text-4xl font-bold mb-4 ml-[-80px]">Features</h2>
-            <p className="text-white/75 text-sm leading-relaxed mb-8 ml-[-80px]">
-              Parturient purus id nunc, nisl. Varius in pulvinar senectus quis.
-              Lacus nec eleifend id nisl eu gravida tincidunt elementum.
-            </p>
-            <button className=" ml-[-80px] border border-white text-white text-sm font-medium px-6 py-2.5 rounded-md hover:bg-white hover:text-[#06768d] transition-colors duration-200">
-              More Features
-            </button>
-          </div>
+<div className="flex flex-col justify-center max-w-lg">
+  <h2 className="text-white text-4xl font-bold mb-4">
+    Powerful VoIP Communication Features
+  </h2>
+
+  <p className="text-white/80 text-sm leading-relaxed mb-8 text-justify">
+    Enhance your business communication with advanced VoIP solutions designed
+    for reliability, scalability, and crystal-clear voice quality. Manage calls,
+    monitor performance, automate billing, and connect globally through a
+    secure cloud-based platform built for modern enterprises.
+  </p>
+
+  <button className="border border-white text-white text-sm font-medium px-6 py-2.5 rounded-md hover:bg-white hover:text-[#06768d] transition-colors duration-200 w-fit">
+    Explore VoIP Features
+  </button>
+</div>
 
           {/* RIGHT CARDS */}
-          <div className="lg:w-[70%] w-full grid grid-cols-2 md:grid-cols-3 gap-6">
+          <div className="w-full grid grid-cols-2 md:grid-cols-3 gap-6">
             {features.map((f, i) => (
               <div
                 key={f.title}
@@ -95,9 +96,6 @@ export default function Features() {
 
         </div>
       </section>
-
-      {/* WHITE SECTION UNDER (So cards overflow onto this) */}
-      <section className="bg-gray-100 h-[220px]"></section>
     </>
   );
 }
