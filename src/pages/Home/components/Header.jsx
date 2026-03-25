@@ -73,7 +73,7 @@ function Waveform({ bars = 32 }) {
 
 /* ── Tab panels ── */
 function TabQuality() {
-  const metrics = [
+  const metrics = [ 
     {
       label: "Voice Quality",
       pct: "",
