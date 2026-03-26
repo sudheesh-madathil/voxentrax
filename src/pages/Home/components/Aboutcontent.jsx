@@ -248,9 +248,9 @@ function VoIPHeroAnimation() {
         ))}
 
         {/* Status labels */}
-        <text x="95" y="310" textAnchor="middle" fontSize="10" fill="#3b82f6" fontFamily="monospace" letterSpacing="1.5" opacity="0.8">CALLER</text>
+        <text x="45" y="310" textAnchor="start" fontSize="10" fill="#374151" fontFamily="monospace" letterSpacing="1.5" opacity="0.8">CALLER</text>
         <text x="452" y="270" textAnchor="middle" fontSize="10" fill="#34353a" fontFamily="monospace" letterSpacing="1.5" opacity="0.8">VOICE CORE</text>
-        <text x="860" y="230" textAnchor="middle" fontSize="10" fill="#67e8f9" fontFamily="monospace" letterSpacing="1.5" opacity="0.8">AGENT</text>
+        <text x="860" y="230" textAnchor="middle" fontSize="10" fill="#374151" fontFamily="monospace" letterSpacing="1.5" opacity="0.8">AGENT</text>
 
         {/* Codec badges */}
         <rect x="340" y="284" width="84" height="22" rx="11" fill="#0891b2" opacity="0.12" stroke="#0891b2" strokeWidth="0.8" />
@@ -345,7 +345,7 @@ export default function VoIPLanding() {
       <div className="min-h-screen bg-white text-gray-900">
 
         {/* HERO */}
-        <div className="bg-white border-b border-gray-200">
+        <div className="bg-white border-gray-200">
           <div className="max-w-7xl mx-auto px-6 py-10 text-center">
             {/* <div className="max-w-7xl mx-auto px-6 pt-6 pb-10 text-center"> */}
             <h1 className="text-3xl md:text-4xl mb-10">
@@ -368,7 +368,6 @@ export default function VoIPLanding() {
           </div>
 
           {/* RIGHT FORM */}
-          {/* <div className="lg:col-span-2 lg:sticky lg:top-8"> */}
           <div className="lg:sticky lg:top-8">
             <div className="rounded-3xl overflow-hidden shadow-xl border border-cyan-100">
               <div className="bg-[#0891b2] px-7 pt-7 pb-5">

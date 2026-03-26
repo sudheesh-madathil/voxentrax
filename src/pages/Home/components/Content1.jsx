@@ -16,9 +16,7 @@ export default function AboutUs() {
         </h1>
 
         <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-          We deliver advanced telecom and VoIP solutions designed to simplify communication,
-          enhance productivity, and empower businesses with scalable, reliable, and future-ready systems 
-        </p>
+We deliver telecom and VoIP solutions designed to simplify communication, enhance productivity, and empower businesses with scalable, reliable, future-ready systems.        </p>
       </div>
 
       {/* SECTION 1 */}
