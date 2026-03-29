@@ -39,7 +39,7 @@ const Navbar = () => {
           />
 
           {/* Social Icons */}
-          <div className="absolute left-0 top-12 flex flex-col gap-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+          <div className="absolute left-0 top-48 flex flex-col gap-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
 
             <a href="/" className="w-10 h-10 flex items-center justify-center rounded-md bg-[#1877F2] text-white shadow-md hover:scale-110 transition">
               <FaFacebookF size={16} />

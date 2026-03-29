@@ -29,9 +29,9 @@ export default function VOIPAboutHeader() {
   const phoneKeys = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "*", "0", "#"];
 
   const keyColors = [
-    "#6366f1", "#3b82f6", "#06b6d4", "#10b981",
-    "#f59e0b", "#ef4444", "#8b5cf6", "#ec4899",
-    "#14b8a6", "#f97316", "#6366f1", "#3b82f6"
+    "#ffffff", "#bcbaba", "#bcbaba", "#bcbaba",
+    "#bcbaba", "#bcbaba", "#bcbaba", "#bcbaba",
+    "#bcbaba", "#bcbaba", "#bcbaba", "#bcbaba"
   ];
 
   const packets = [
@@ -95,10 +95,10 @@ export default function VOIPAboutHeader() {
 
         {/* ================= MAIN GRID ================= */}
         {/* FIX 3: perfectly centered container */}
-        <div className="relative z-10 w-full max-w-8xl mx-auto px-6 lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-16">
+        <div className="relative z-10 w-full max-w-8xl mx-auto px-6 ml-15px lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center py-16">
 
           {/* ================= LEFT SIDE ================= */}
-          <div className="flex flex-col gap-7">
+<div className="flex flex-col gap-7 ml-[25px]">
 
             <h1 className="font-['Syne',sans-serif] text-4xl md:text-[2.6rem] leading-[1.2] text-gray-600">
               Power of the{" "}
@@ -106,12 +106,12 @@ export default function VOIPAboutHeader() {
                 Telecommunication
               </span>
             </h1>
-            <p className="text-gray-600 text-base leading-relaxed text-justify mt-4">
-              Intelligent, cloud-powered telecom built for modern communication.
-              Experience ultra-clear voice with AI optimization and real-time routing.
-              Intelligent, cloud-powered telecom built for modern communication.
-              Experience ultra-clear voice with AI optimization and real-time routing.
-            </p>
+<p className="text-gray-600 text-base leading-relaxed text-justify mt-4 w-[92%]">
+  Intelligent, cloud-powered telecom built for modern communication.
+  Experience ultra-clear voice with AI optimization and real-time routing.
+  Intelligent, cloud-powered telecom built for modern communication.
+  Experience ultra-clear voice with AI optimization and real-time routing.
+</p>
 
             <div
               style={{
@@ -169,24 +169,61 @@ export default function VOIPAboutHeader() {
                 </div>
 
                 {/* dialpad */}
-                <div className="grid grid-cols-3 gap-1.5 mb-3">
-                  {phoneKeys.map((k, i) => (
-                    <button key={k}
-                      className="h-9 rounded-xl text-sm font-bold text-white transition-all duration-150 hover:scale-95 hover:brightness-90 active:scale-90"
-                      style={{ background: keyColors[i], animation: `keyPop .3s ease ${i % 3 === 1 ? 'forwards' : ''}` }}>
-                      {k}
-                    </button>
-                  ))}
-                </div>
+<div className="grid grid-cols-3 gap-1.5 mb-3">
+  {phoneKeys.map((k, i) => (
+    <button
+      key={k}
+      className="
+        h-9
+        rounded-xl
+        text-sm
+        font-bold
+        text-black
+        bg-gray-100
+        border border-gray-200
+        transition-all duration-150
+        hover:scale-95
+        hover:bg-gray-200
+        active:scale-90
+      "
+      style={{
+        animation: `keyPop .3s ease ${
+          i % 3 === 1 ? "forwards" : ""
+        }`,
+      }}
+    >
+      {k}
+    </button>
+  ))}
+</div>
 
                 {/* end call */}
-                <button className="w-full py-2.5 rounded-2xl text-white text-xs font-bold flex items-center justify-center gap-2"
-                  style={{ background: "linear-gradient(90deg,#ef4444,#f97316)" }}>
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                  </svg>
-                  End Call
-                </button>
+<button
+  className="
+    w-full
+    py-2.5
+    rounded-2xl
+    text-white
+    text-xs
+    font-bold
+    flex
+    items-center
+    justify-center
+    gap-2
+    bg-gradient-to-r
+    from-green-200
+    to-green-300
+    hover:from-green-200
+    hover:to-green-300
+    transition-all
+    duration-200
+  "
+>
+  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
+  </svg>
+  End Call
+</button>
               </div>
 
               {/* ── CARD 2: SIP Packet flow + waveform ── */}
@@ -226,29 +263,49 @@ export default function VOIPAboutHeader() {
                 </div>
 
                 {/* voice waveform */}
-                <div className="bg-white rounded-3xl border border-slate-100 shadow-xl p-4 flex-1"
-                  style={{ animation: "floatC 5.5s ease-in-out infinite", animationDelay: "1.2s" }}>
-                  <div className="flex items-center justify-between mb-2">
-                    <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">Voice Wave</p>
-                    <span className="text-xs font-bold text-emerald-500">● LIVE</span>
-                  </div>
-                  <div className="flex items-end gap-px h-12 mb-2">
-                    {Array.from({ length: 40 }, (_, i) => ({
-                      h: waveH(i), color: waveColors[i % waveColors.length]
-                    })).map((b, i) => (
-                      <div key={i} className="flex-1 rounded-sm transition-all duration-300"
-                        style={{ height: `${(b.h / 60) * 48}px`, background: b.color, opacity: .65 + (b.h / 60) * .35 }} />
-                    ))}
-                  </div>
-                  <div className="flex justify-between text-xs text-slate-400">
-                    <span>Opus · 48kHz</span>
-                    <span className="font-bold" style={{ color: "#10b981" }}>MOS 4.5</span>
-                  </div>
-                </div>
+<div
+  className="bg-white rounded-3xl border border-slate-100 shadow-xl p-4 flex flex-col h-full"
+  style={{
+    animation: "floatC 5.5s ease-in-out infinite",
+    animationDelay: "1.2s",
+  }}
+>
+  {/* TOP HEADER */}
+  <div className="flex items-center justify-between mb-2">
+    <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">
+      Voice Wave
+    </p>
+    <span className="text-xs font-bold text-emerald-500">● LIVE</span>
+  </div>
+
+  {/* bottom content wrapper */}
+  <div className="mt-auto">
+    {/* WAVE ANIMATION */}
+    <div className="flex items-end gap-px h-12 mb-2">
+      {Array.from({ length: 40 }, (_, i) => ({
+        h: waveH(i),
+        color: waveColors[i % waveColors.length],
+      })).map((b, i) => (
+        <div
+          key={i}
+          className="flex-1 rounded-sm transition-all duration-300"
+          style={{
+            height: `${(b.h / 60) * 48}px`,
+            background: b.color,
+            opacity: 0.65 + (b.h / 60) * 0.35,
+          }}
+        />
+      ))}
+    </div>
+
+    {/* FOOTER INFO */}
+    <div className="flex justify-between text-xs text-slate-400">
+      <span>Opus · 48kHz</span>
+      <span className="font-bold text-emerald-500">MOS 4.5</span>
+    </div>
+  </div>
+</div>
               </div>
-
-              {/* ── CARD 3: Call log ── */}
-
 
               {/* ── CARD 4: Network nodes ── */}
               <div className="bg-white rounded-3xl border border-slate-100 shadow-xl p-4 col-span-2"
