@@ -10,112 +10,132 @@ export default function AboutUs() {
 
       {/* MAIN HEADING */}
       <div className="max-w-6xl mx-auto text-center mb-16">
-        <h1 className="text-4xl md:text-3xl font-default text-gray-900 mb-4">
-          Building the Future of Tele
-          <span className="text-blue-500"> Communication</span>
-        </h1>
+<h2 className="text-4xl md:text-3xl font-default text-gray-900 mb-4">
+  Smart Communication Solutions by
+  <span className="text-blue-500"> Dial Infinity</span>
+</h2>
 
-        <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-We deliver telecom and VoIP solutions designed to simplify communication, enhance productivity, and empower businesses with scalable, reliable, future-ready systems.        </p>
+<p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
+  DialInfinity provides smart VoIP and telecom solutions for seamless communication,
+  secure connectivity, and scalable collaboration in today’s digital-first world.
+</p>
       </div>
 
-      {/* SECTION 1 */}
+      {/* SECTION 1 — WHO WE ARE */}
       <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
 
         <img
           src={aboutImg}
-          alt="About"
+          alt="About DialInfinity"
           className="w-full h-[450px] object-cover rounded-xl"
         />
 
-        <div className="max-w-xl">
-          <h2 className="text-2xl font-default mb-4">
-            <span className="text-gray-600">Who</span>{" "}
-            <span className="text-blue-500">We Are</span>
-          </h2>
+<div className="max-w-[41rem]">
+  <h2 className="text-2xl font-default mb-4">
+  <span className="text-gray-600">What</span>{" "}
+  <span className="text-blue-500">We Provide</span>
+</h2>
 
-           <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-            We are a technology-driven organization committed to transforming the way modern 
-            communication works by delivering highly reliable and scalable VoIP solutions. 
-            Our team is made up of skilled professionals with deep industry knowledge, 
-            enabling us to design systems that meet the growing demands of businesses across 
-            different sectors. We focus on creating seamless communication experiences that 
-            eliminate disruptions and ensure consistent performance across all platforms.
-          </p>
+<p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
+  Dial Infinity delivers powerful VoIP communication systems that enable
+  businesses to manage voice connectivity through secure and cloud-based
+  infrastructure. Our solutions are built to replace traditional telecom
+  limitations with flexible and cost-effective communication environments
+  that simplify everyday business operations.
+</p>
 
-           <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-            By combining innovation with practical implementation, we help businesses build 
-            stronger connections both internally and externally. Our solutions are crafted 
-            to enhance collaboration, streamline operations, and improve customer engagement. 
-            We believe that effective communication is the foundation of success, and we strive 
-            to deliver tools that not only meet expectations but exceed them in every possible way.
-          </p>
+<p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
+  From enterprise calling to global connectivity, our platform ensures
+  high-quality voice transmission, intelligent routing, and seamless
+  integration with modern business tools. Organizations can centralize
+  communication workflows, monitor performance in real time, and maintain
+  reliable connections regardless of geographical location or workforce
+  structure.
+</p>
+
+<p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
+  Our services are designed to support growing teams, remote environments,
+  and customer-facing operations by delivering scalable communication
+  capabilities that evolve alongside business demands while maintaining
+  security, stability, and ease of use.
+</p>
         </div>
       </div>
 
-      {/* SECTION 2 */}
+      {/* SECTION 2 — MISSION */}
       <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
 
-        <div className="max-w-xl">
-          <h2 className="text-2xl font-default mb-4">
-            <span className="text-gray-600">Our</span>{" "}
-            <span className="text-blue-500">Mission</span>
-          </h2>
+<div className="max-w-[41rem]">
+  <h2 className="text-2xl font-default mb-4">
+  <span className="text-gray-600">Why Choose</span>{" "}
+  <span className="text-blue-500">Dial Infinity</span>
+</h2>
 
-          <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-            Our mission is to redefine how communication is experienced by businesses through 
-            advanced cloud-based VoIP technologies that prioritize speed, security, and scalability. 
-            We aim to remove traditional barriers in communication by offering solutions that are 
-            flexible and adaptable to organizations of all sizes, from startups to large enterprises. 
-            Our goal is to create a smooth and uninterrupted communication environment that supports 
-            business growth and operational efficiency.
-          </p>
- <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-            We are dedicated to continuous innovation and improvement, ensuring that our systems 
-            evolve alongside industry advancements and customer expectations. By focusing on 
-            performance, reliability, and user experience, we empower businesses to stay ahead 
-            in a competitive market. Our mission is not just to provide services, but to build 
-            long-term partnerships through trust, quality, and consistent value delivery.
-          </p>
+<p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
+  Businesses choose Dial Infinity for its dependable infrastructure,
+  advanced security standards, and scalable communication architecture.
+  Our VoIP ecosystem is engineered to provide consistent performance,
+  enabling organizations to operate without interruptions or communication
+  delays.
+</p>
+
+<p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
+  We prioritize clarity, reliability, and operational transparency by
+  offering intelligent analytics, call monitoring capabilities, and
+  flexible configuration options. This allows businesses to optimize
+  communication workflows while maintaining full control over their
+  telecom environment.
+</p>
+
+<p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
+  Through continuous platform improvements and customer-focused
+  innovation, Dial Infinity helps companies reduce communication costs,
+  improve collaboration efficiency, and strengthen relationships with
+  customers through dependable voice connectivity.
+</p>
         </div>
 
         <img
           src={aboutImg2}
-          alt="Mission"
+          alt="DialInfinity Mission"
           className="w-full h-[680px] object-cover rounded-xl mt-[40px]"
         />
       </div>
 
-      {/* SECTION 3 */}
+      {/* SECTION 3 — VISION */}
       <div className="grid md:grid-cols-2 gap-12 items-center">
 
         <img
           src={aboutImg3}
-          alt="Vision"
+          alt="DialInfinity Vision"
           className="w-full h-[450px] object-cover rounded-xl"
         />
 
-        <div className="max-w-xl">
-          <h2 className="text-2xl font-default mb-4">
-            <span className="text-gray-600">Our</span>{" "}
-            <span className="text-blue-500">Vision</span>
-          </h2>
+<div className="max-w-[41rem]">
+  <h2 className="text-2xl font-default mb-4">
+  <span className="text-gray-600">Our</span>{" "}
+  <span className="text-blue-500">Technology Approach</span>
+</h2>
+<p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
+  At Dial Infinity, technology drives every communication experience we
+  create. Our cloud-powered VoIP infrastructure is engineered for speed,
+  stability, and global accessibility, allowing businesses to communicate
+  seamlessly without the constraints of traditional systems.
+</p>
 
-           <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-            Our vision is to create a future where communication is effortless, intelligent, 
-            and globally accessible without limitations. We aim to build a connected ecosystem 
-            powered by cutting-edge technology that allows businesses to communicate seamlessly 
-            regardless of geographical boundaries. By integrating smart systems and advanced 
-            infrastructure, we strive to redefine how people interact in the digital age.
-          </p>
+<p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
+  We integrate modern networking technologies, intelligent call routing,
+  and scalable architecture to ensure optimized performance across
+  different regions and network conditions. This approach guarantees
+  reliable voice quality and uninterrupted service delivery.
+</p>
 
-           <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-            We continuously push the boundaries of innovation to deliver solutions that are not 
-            only efficient but also future-ready. Our long-term vision is to lead the telecom 
-            industry by setting new standards in quality, performance, and user experience. 
-            Through dedication, creativity, and excellence, we aim to empower businesses and 
-            shape the future of communication on a global scale.
-          </p>
+<p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
+  By continuously evolving our platform through innovation and research,
+  Dial Infinity builds future-ready communication systems that support
+  digital transformation, remote collaboration, and long-term business
+  growth in a rapidly changing technological landscape.
+</p>
         </div>
       </div>
 

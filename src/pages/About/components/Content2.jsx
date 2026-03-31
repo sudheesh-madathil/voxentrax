@@ -1,24 +1,24 @@
 import React from "react";
 
-import aboutImg from "../../../assets/Images/5121056.jpg";
-import aboutImg2 from "../../../assets/Images/5101602.jpg";
+import aboutImg from "../../../assets/Images/about.jpg";
+import aboutImg2 from "../../../assets/Images/about4.jpg";
 
 export default function AboutUsContent2() {
   return (
     <section className="w-full bg-white py-16 px-6 md:px-20">
 
-      {/* MAIN HEADING */}
-      <div className="max-w-6xl mx-auto text-center mb-16">
-        <h1 className="text-4xl md:text-3xl font-default text-gray-900 mb-4">
-          Building the Future of Tele
-          <span className="text-blue-500"> Communication</span>
-        </h1>
+{/* MAIN HEADING */}
+<div className="max-w-6xl mx-auto text-center mb-16">
+<h1 className="text-4xl md:text-3xl font-default text-gray-900 mb-4">
+  Powering Smart Business
+  <span className="text-blue-500"> VoIP Communication</span>
+</h1>
 
-        <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-          We deliver advanced telecom and VoIP solutions designed to simplify communication,
-          enhance productivity, and empower businesses with scalable, reliable, and future-ready systems 
-        </p>
-      </div>
+<p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
+  We deliver advanced VoIP and cloud communication solutions that help businesses
+  connect seamlessly and communicate without limits.
+</p>
+</div>
 
       {/* SECTION 1 */}
       <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
@@ -29,56 +29,60 @@ export default function AboutUsContent2() {
           className="w-full h-[450px] object-cover rounded-xl"
         />
 
-        <div className="max-w-xl">
-          <h2 className="text-2xl font-default mb-4">
-            <span className="text-gray-600">Who</span>{" "}
-            <span className="text-blue-500">We Are</span>
-          </h2>
+<div className="max-w-xl">
+  <h2 className="text-2xl font-default mb-4">
+    <span className="text-gray-600">About</span>{" "}
+    <span className="text-blue-500">Our Company</span>
+  </h2>
 
-           <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-            We are a technology-driven organization committed to transforming the way modern 
-            communication works by delivering highly reliable and scalable VoIP solutions. 
-            Our team is made up of skilled professionals with deep industry knowledge, 
-            enabling us to design systems that meet the growing demands of businesses across 
-            different sectors. We focus on creating seamless communication experiences that 
-            eliminate disruptions and ensure consistent performance across all platforms.
-          </p>
+  <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
+    We are a forward-thinking VoIP and telecom solutions provider dedicated
+    to helping businesses communicate smarter and more efficiently. By
+    leveraging cloud-based technologies and modern communication
+    infrastructure, we deliver reliable voice, messaging, and connectivity
+    solutions tailored to meet evolving business needs. Our expertise allows
+    organizations to replace complex traditional systems with flexible and
+    scalable digital communication platforms.
+  </p>
 
-           <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-            By combining innovation with practical implementation, we help businesses build 
-            stronger connections both internally and externally. Our solutions are crafted 
-            to enhance collaboration, streamline operations, and improve customer engagement. 
-            We believe that effective communication is the foundation of success, and we strive 
-            to deliver tools that not only meet expectations but exceed them in every possible way.
-          </p>
-        </div>
+  <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
+    Our team combines technical excellence with industry insight to build
+    solutions that enhance collaboration, improve customer interactions,
+    and ensure uninterrupted global connectivity. We focus on performance,
+    security, and simplicity, enabling businesses to operate confidently
+    while staying connected anytime and anywhere through advanced VoIP
+    innovation.
+  </p>
+</div>
       </div>
 
       {/* SECTION 2 */}
       <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
 
-        <div className="max-w-xl">
-          <h2 className="text-2xl font-default mb-4">
-            <span className="text-gray-600">Our</span>{" "}
-            <span className="text-blue-500">Mission</span>
-          </h2>
+<div className="max-w-xl">
+<h2 className="text-2xl font-default mb-4">
+  <span className="text-gray-600">Driving</span>{" "}
+  <span className="text-blue-500">Innovation</span>
+</h2>
 
-          <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-            Our mission is to redefine how communication is experienced by businesses through 
-            advanced cloud-based VoIP technologies that prioritize speed, security, and scalability. 
-            We aim to remove traditional barriers in communication by offering solutions that are 
-            flexible and adaptable to organizations of all sizes, from startups to large enterprises. 
-            Our goal is to create a smooth and uninterrupted communication environment that supports 
-            business growth and operational efficiency.
-          </p>
- <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-            We are dedicated to continuous innovation and improvement, ensuring that our systems 
-            evolve alongside industry advancements and customer expectations. By focusing on 
-            performance, reliability, and user experience, we empower businesses to stay ahead 
-            in a competitive market. Our mission is not just to provide services, but to build 
-            long-term partnerships through trust, quality, and consistent value delivery.
-          </p>
-        </div>
+<p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
+  Innovation is at the core of everything we do. We continuously develop
+  advanced VoIP and cloud communication solutions that help businesses
+  stay connected in a fast-changing digital world. By integrating modern
+  technologies with reliable telecom infrastructure, we create systems
+  that enhance communication efficiency while maintaining exceptional
+  voice quality, security, and performance.
+</p>
+
+<p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
+  Our approach focuses on simplifying complex communication processes
+  through intelligent automation and scalable platforms. We aim to
+  empower organizations with flexible tools that improve collaboration,
+  support remote work environments, and enable seamless global
+  connectivity. By embracing innovation, we help businesses adapt,
+  grow, and succeed with future-ready VoIP solutions.
+</p>
+</div>
 
         <img
           src={aboutImg2}
