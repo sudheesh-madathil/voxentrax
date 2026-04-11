@@ -1,176 +1,201 @@
-import React, { useEffect, useRef } from "react";
-import { FaUsers, FaLightbulb, FaPlane, FaRegUser } from "react-icons/fa";
-import { HiUserGroup } from "react-icons/hi";
+import { useEffect, useState } from "react";
+import {
+  FaUserPlus,
+  FaMobileAlt,
 
-const STYLES = `
-  @keyframes spin-cw        { from { transform: rotate(0deg);   } to { transform: rotate(360deg);  } }
-  @keyframes spin-ccw       { from { transform: rotate(0deg);   } to { transform: rotate(-360deg); } }
-  @keyframes float-up       { 0%,100% { transform: translateY(0px); } 50% { transform: translateY(-8px); } }
+  FaSearch,
+ 
+} from "react-icons/fa";
 
-  .gear-spin-cw        { animation: spin-cw  18s linear infinite; }
-  .gear-spin-ccw       { animation: spin-ccw 12s linear infinite; }
-  .gear-spin-cw-slow   { animation: spin-cw  30s linear infinite; }
-  .gear-spin-ccw-slow  { animation: spin-ccw 22s linear infinite; }
 
-  .float-anim { animation: float-up 5s ease-in-out infinite; }
-`;
+import { BiConversation } from "react-icons/bi";
+import { BiTargetLock } from "react-icons/bi";
 
-const Gear = ({
-  size = 120,
-  color = "#4eb9e5",
-  innerColor = "white",
-  children,
-  isMain = false,
-  spinClass = "gear-spin-cw",
-}) => {
-  return (
-    <div
-      className="relative flex items-center justify-center"
-      style={{ width: size, height: size }}
-    >
-      <svg
-        viewBox="0 0 100 100"
-        className={`w-full h-full absolute inset-0 drop-shadow-lg ${spinClass}`}
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <g fill={color}>
-          {[...Array(12)].map((_, i) => (
-            <rect
-              key={i}
-              x="44" y="2"
-              width="12" height="15"
-              transform={`rotate(${i * 30} 50 50)`}
-              rx="1"
-            />
-          ))}
-          <circle cx="50" cy="50" r="38" />
-        </g>
-        <circle cx="50" cy="50" r={isMain ? 28 : 25} fill={innerColor} />
-        {isMain && (
-          <circle cx="50" cy="50" r="24" fill="none" stroke={color} strokeWidth="1" opacity="0.3" />
-        )}
-      </svg>
 
-      <div
-        className="relative z-10 flex items-center justify-center"
-        style={{ color }}
-      >
-        {children}
-      </div>
-    </div>
-  );
-};
 
-export default function ContactFAQSection() {
-  const stylesInjected = useRef(false);
+
+/* ── Animated illustration ── */
+
+
+
+/* ── INFOGRAPHIC BARS ── */
+function InfographicBars() {
+  const [active, setActive] = useState(2);
+
   useEffect(() => {
-    if (stylesInjected.current) return;
-    stylesInjected.current = true;
-    const el = document.createElement("style");
-    el.textContent = STYLES;
-    document.head.appendChild(el);
+    const i = setInterval(() => {
+      setActive((prev) => (prev + 1) % 5);
+    }, 1600);
+    return () => clearInterval(i);
   }, []);
 
+  // 🔥 CONFIG
+  const BAR_WIDTH = 110;
+  const HALF = BAR_WIDTH / 2;
+  const CURVE = 50;
+const GAP = 10;
+const bars = [
+  { h: 110, color: "#f4c542" },
+  { h: 170, color: "#f97316" },
+  { h: 230, color: "#2f4858" },
+  { h: 170, color: "#9bb27b" },
+  { h: 140, color: "#5f9ea0" },
+].map((bar, i) => ({
+  ...bar,
+  x: i * (BAR_WIDTH + GAP) + 10, // 🔥 perfect spacing
+}));
+
   return (
-    <section className="w-full bg-white py-24 px-6 md:px-20 overflow-hidden">
-<div
-  className="grid md:grid-cols-2 items-center"
+    <div className="w-full flex justify-center">
+      <svg viewBox="0 0 700 320" className="w-full max-w-[700px]">
+
+        {/* SHADOW */}
+        <defs>
+          <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+            <feDropShadow dx="0" dy="6" stdDeviation="6" floodOpacity="0.15" />
+          </filter>
+        </defs>
+
+        {bars.map((bar, i) => {
+          const y = 280 - bar.h;
+
+          return (
+    <g
+  key={i}
+  filter="url(#shadow)"
   style={{
-    maxWidth: "1360px",
-    margin: "0 auto",
-    gap: "10rem",
+    transform:
+      active === i
+        ? "translateY(-12px)"   // 🔥 move UP
+        : "translateY(12px)",   // 🔥 move DOWN
+    transition: "transform 0.5s ease-in-out",
   }}
 >
-        {/* LEFT TEXT CONTENT — exactly as original */}
-{/* LEFT TEXT CONTENT */}
-<div className="flex flex-col gap-7 ml-[10px]">
+              {/* BAR SHAPE */}
+              <path
+                d={`
+                  M ${bar.x} 280
+                  L ${bar.x} ${y + CURVE}
+                  Q ${bar.x} ${y} ${bar.x + HALF} ${y}
+                  Q ${bar.x + BAR_WIDTH} ${y} ${bar.x + BAR_WIDTH} ${y + CURVE}
+                  L ${bar.x + BAR_WIDTH} 280
+                  Z
+                `}
+                fill={bar.color}
+              />
 
-  <h1 className="font-['Syne',sans-serif] text-4xl md:text-4xl leading-[1.08] text-gray-700">
-    Frequently Asked{" "}
-    <span className="text-blue-500">Questions</span>
-  </h1>
+              {/* ICONS */}
+ {/* ICONS (INFOGRAPHIC STYLE - CENTERED & BOLD) */}
 
-  <p className="font-sans text-gray-600 text-sm sm:text-base md:text-[17px]
-    leading-6 sm:leading-7 text-justify max-w-full lg:max-w-[620px]">
+{/* ICONS (UNIFIED INFOGRAPHIC STYLE) */}
 
-    Find quick answers to the most common questions about our platform,
+{/* 1 */}
+{i === 0 && (
+  <foreignObject x={bar.x + HALF - 28} y={y + 10} width="56" height="56">
+    <div className="w-full h-full flex items-start justify-center">
+      <FaUserPlus className="text-white text-3xl mt-1" />
+    </div>
+  </foreignObject>
+)}
+
+{/* 2 */}
+{i === 1 && (
+  <foreignObject x={bar.x + HALF - 28} y={y + 10} width="56" height="56">
+    <div className="w-full h-full flex items-start justify-center">
+      <FaMobileAlt className="text-white text-3xl mt-1" />
+    </div>
+  </foreignObject>
+)}
+
+{/* 3 (MAIN BIG ONE) */}
+{i === 2 && (
+  <foreignObject x={bar.x + HALF - 32} y={y + 6} width="64" height="64">
+    <div className="w-full h-full flex items-start justify-center">
+      <BiConversation  className="text-white text-4xl mt-1" />
+    </div>
+  </foreignObject>
+)}
+
+{/* 4 */}
+{i === 3 && (
+  <foreignObject x={bar.x + HALF - 28} y={y + 10} width="56" height="56">
+    <div className="w-full h-full flex items-start justify-center">
+      <FaSearch className="text-white text-3xl mt-1" />
+    </div>
+  </foreignObject>
+)}
+
+{/* 5 */}
+{i === 4 && (
+  <foreignObject x={bar.x + HALF - 28} y={y + 10} width="56" height="56">
+    <div className="w-full h-full flex items-start justify-center">
+      <BiTargetLock  className="text-white text-3xl mt-1" />
+    </div>
+  </foreignObject>
+)}
+              {/* NUMBER */}
+              <circle
+  cx={bar.x + HALF}
+  cy="280"
+  r="16"
+ fill={bar.color} 
+  stroke="#ffffff"
+  strokeWidth="2"
+/>
+              <text
+                x={bar.x + HALF}
+                y="285"
+                textAnchor="middle"
+                fontSize="14"
+                fontWeight="700"
+                fill="#f4f4f4"
+              >
+                {i + 1}
+              </text>
+            </g>
+          );
+        })}
+      </svg>
+    </div>
+  );
+}
+
+/* ── MAIN COMPONENT ── */
+export default function Faqheader() {
+  return (
+ <section className="h-[610px] flex items-center justify-center lg:justify-end bg-white py-7 md:px-16">
+      <div className="max-w-7xl w-full flex flex-col md:flex-row items-center ">
+
+        {/* LEFT */}
+        <div className="flex-1 h-[400px]">
+          <h1 className="text-4xl md:text-5xl  text-slate-900 leading-tight mb-6">
+            Frequently 
+            <span className="text-blue-600">Asked</span> Questions
+          </h1>
+
+          <p className="text-slate-500 leading-relaxed mb-8 max-w-md">
+           Find quick answers to the most common questions about our platform,
     services, and integrations. We’ve gathered helpful information to guide
     you through setup, features, and support so you can get started with
     confidence and make the most of your experience.
-  </p>
+          </p>
 
-  <div className="flex gap-4 mt-6">
-    <button className="inline-flex items-center gap-2 px-6 py-3
-      text-white text-sm font-semibold bg-blue-500 hover:bg-blue-600 transition">
-      View All FAQs
-    </button>
+          <div className="flex gap-4">
+            <button className="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:scale-105 transition">
+             View All FAQs
+            </button>
 
-    <button className="inline-flex items-center gap-2 px-6 py-3
-      text-sm font-medium text-gray-700 border border-gray-300 bg-gray-100
-      hover:bg-gray-200 transition">
-      Contact Support
-    </button>
-  </div>
-
-</div>
-
-
-        {/* RIGHT — Gear Cluster: distinct colors + spin animations */}
-        <div className="relative h-[420px] flex items-center justify-center">
-          <div className="float-anim relative w-full h-full max-w-[470px]">
-
-            {/* CENTER — Indigo */}
-            <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-              <Gear size={200} color="#4f46e5" innerColor="#eef2ff" isMain spinClass="gear-spin-cw-slow">
-                <span style={{ fontWeight: 800, fontSize: "1.9rem", color: "#4f46e5" }}>FAQ</span>
-              </Gear>
-            </div>
-
-            {/* TOP LEFT — Cyan */}
-            <div className="absolute left-[15%] top-[10%]">
-              <Gear size={95} color="#06b6d4" innerColor="#ecfeff" spinClass="gear-spin-ccw">
-                <FaUsers className="text-2xl" />
-              </Gear>
-            </div>
-
-            {/* TOP RIGHT — Violet */}
-            <div className="absolute right-[15%] top-[10%]">
-              <Gear size={95} color="#7c3aed" innerColor="#f5f3ff" spinClass="gear-spin-cw">
-                <FaRegUser className="text-2xl" />
-              </Gear>
-            </div>
-
-            {/* MIDDLE LEFT — Emerald */}
-            <div className="absolute left-[-5%] top-[37%]">
-              <Gear size={140} color="#10b981" innerColor="#ecfdf5" spinClass="gear-spin-ccw-slow">
-                <HiUserGroup className="text-4xl" />
-              </Gear>
-            </div>
-
-            {/* MIDDLE RIGHT — Amber */}
-            <div className="absolute right-[-5%] top-[37%]">
-              <Gear size={140} color="#f59e0b" innerColor="#fffbeb" spinClass="gear-spin-cw-slow">
-                <FaLightbulb className="text-3xl" />
-              </Gear>
-            </div>
-
-            {/* BOTTOM LEFT — Rose */}
-            <div className="absolute left-[20%] bottom-[5%]">
-              <Gear size={95} color="#f43f5e" innerColor="#fff1f2" spinClass="gear-spin-cw">
-                <FaPlane className="text-2xl" />
-              </Gear>
-            </div>
-
-            {/* BOTTOM RIGHT — Sky Blue */}
-            <div className="absolute right-[20%] bottom-[5%]">
-              <Gear size={95} color="#0ea5e9" innerColor="#f0f9ff" spinClass="gear-spin-ccw">
-                <FaLightbulb className="text-2xl" />
-              </Gear>
-            </div>
-
+            <button className="border border-gray-300 px-6 py-3 rounded-lg font-semibold hover:text-blue-600 hover:border-blue-600 transition">
+              Contact Support
+            </button>
           </div>
         </div>
 
+   <div className="flex-1 flex justify-end items-center pl-10">
+  <div className="w-full max-w-[700px] h-[400px]">
+    <InfographicBars />
+  </div>
+</div>
       </div>
     </section>
   );

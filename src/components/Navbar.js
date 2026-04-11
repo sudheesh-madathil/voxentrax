@@ -8,7 +8,7 @@ import {
   FaGithub,
 } from "react-icons/fa";
 import { Languages } from "lucide-react";
-import logo from "../assets/logo.jpeg"; // ✅ import logo
+ import logo from "../assets/WhatsApp Image 2026-04-11 at 1.39.25 AM.jpeg"; 
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);
@@ -25,18 +25,14 @@ const Navbar = () => {
   const languages = ["English", "French", "Arabic", "Spanish"];
 
   return (
-    <nav className="bg-white sticky top-0 z-50">
+<nav className="bg-white sticky top-0 z-50">
       <div className="w-full px-6 py-4 relative flex items-center">
 
         {/* LEFT: Logo + Social */}
-        <div className="flex-1 relative group flex items-center">
+        <div className=" relative group  flex items-center">
 
           {/* ✅ Logo Image */}
-          <img
-            src={logo}
-            alt="Logo"
-            className="h-12 w-auto cursor-pointer object-contain"
-          />
+<img src={logo} alt="logo" className="h-24  w-auto" />
 
           {/* Social Icons */}
           <div className="absolute left-0 top-48 flex flex-col gap-3 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
@@ -69,7 +65,7 @@ const Navbar = () => {
         </div>
 
         {/* CENTER: Nav */}
-        <ul className="hidden md:flex gap-8 text-gray-500 font-medium absolute left-1/2 -translate-x-1/2">
+       <ul className="hidden md:flex gap-8 text-gray-400 font-medium absolute left-1/2 -translate-x-1/2">
           {navItems.map((item) => (
             <li key={item.name}>
               <a href={item.href} className="hover:text-sky-400 transition">
@@ -106,9 +102,11 @@ const Navbar = () => {
             />
           </div>
 
-          <button className="px-5 py-2 rounded-lg bg-blue-500 text-white hover:bg-blue-600 transition flex items-center gap-2">
-            Get a Demo
-          </button>
+        <button className="px-5 py-2 rounded-lg bg-white text-orange-500 hover:bg-orange-50 transition border border-orange-200">
+  Get a Demo
+</button>
+        
+        
 
         </div>
 
@@ -145,7 +143,7 @@ const Navbar = () => {
               ))}
             </select>
 
-            <button className="px-4 py-2 rounded-lg bg-blue-500 text-white">
+            <button className="px-4 py-2 rounded-lg bg-blue-700 text-white">
               Get a Demo
             </button>
           </div>

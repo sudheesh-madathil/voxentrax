@@ -150,7 +150,7 @@ export default function AnimatedFooter() {
       <footer
         className="footer-font relative overflow-hidden"
         style={{
-background: "#0891b2",
+background: "#f29810",
           minHeight: 480,
         }}
       >
