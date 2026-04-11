@@ -1,12 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import { IoMdMailUnread } from "react-icons/io";
+
 
 /* ── tiny SVG icons ── */
-const PhoneIcon = () => (
-  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 8.81 19.79 19.79 0 01.06 2.18 2 2 0 012 0h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.09 7.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z" />
-  </svg>
-);
+
 const ShieldIcon = () => (
   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
     <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
@@ -154,17 +150,7 @@ const CONTINENTS = [
 ];
 
 /* ── Live Call count per continent ── */
-function ContinentCallCount({ base, variance }) {
-  const val = useLiveCalls(base, variance);
-  const prev = useRef(base);
-  const up = val >= prev.current;
-  useEffect(() => { prev.current = val; }, [val]);
-  return (
-    <span className="tabular-nums font-bold text-slate-800 text-base leading-none">
-      {val.toLocaleString()}
-    </span>
-  );
-}
+
 
 /* ── Main live call visualizer (top card) ── */
 function LiveCallVisualizer({ continent }) {
@@ -291,17 +277,7 @@ function ContinentCard({ continent, selected, onSelect }) {
 
       <div className="text-[0.68rem] font-semibold text-slate-700 leading-tight mb-1.5">{continent.label}</div>
 
-      {/* <ContinentCallCount base={continent.base} variance={continent.variance} />
-      <div className="text-[0.58rem] text-slate-400 mt-0.5">calls / now</div> */}
-
-      {/* Mini bar */}
-      {/* <div className="mt-2 h-1 rounded-full bg-slate-200 overflow-hidden">
-        <div className="h-full rounded-full transition-all duration-700"
-          style={{
-            width: `${Math.min(100, (continent.base / 5000) * 100)}%`,
-            background: continent.color,
-          }} />
-      </div> */}
+   
     </button>
   );
 }
