@@ -109,7 +109,7 @@ const bars = [
 
 {/* 3 (MAIN BIG ONE) */}
 {i === 2 && (
-  <foreignObject x={bar.x + HALF - 32} y={y + 6} width="64" height="64">
+  <foreignObject x={bar.x + HALF - 28} y={y + 10} width="64" height="64">
     <div className="w-full h-full flex items-start justify-center">
       <BiConversation  className="text-white text-7xl mt-1" />
     </div>
