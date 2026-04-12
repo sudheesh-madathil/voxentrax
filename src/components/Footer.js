@@ -117,12 +117,11 @@ export default function TelecomFooter() {
                 <ul className="space-y-4">
                   {links.map((link) => (
                     <li key={link}>
-                      <a
-                        href="#"
-                        className="text-gray-400 hover:text-cyan-400 text-sm transition-colors duration-200 block"
-                      >
-                        {link}
-                      </a>
+                   <button
+  className="text-gray-400 hover:text-cyan-400 text-sm transition-colors duration-200 block text-left"
+>
+  {link}
+</button>
                     </li>
                   ))}
                 </ul>
@@ -159,14 +158,12 @@ export default function TelecomFooter() {
                 <FaTwitter />,
                 <FaFacebookF />,
                 <FaWhatsapp />,
-              ].map((icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="w-10 h-10 border border-gray-800 rounded-full flex items-center justify-center hover:bg-cyan-500 hover:border-cyan-500 transition-all duration-300"
-                >
-                  {icon}
-                </a>
+              ].map((link, i) => (
+            <button
+  className="text-gray-400 hover:text-cyan-400 text-sm transition-colors duration-200 block text-left"
+>
+  {link}
+</button>
               ))}
             </div>
           </div>
