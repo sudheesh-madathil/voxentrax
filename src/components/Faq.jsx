@@ -1,5 +1,14 @@
 import { useState } from "react";
-
+import { 
+  Globe, 
+  Settings, 
+  ShieldCheck, 
+  UserCircle, 
+  Cpu, 
+  LifeBuoy, 
+ Search, 
+ 
+} from "lucide-react";
 const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
 
@@ -63,7 +72,20 @@ const styles = `
     margin: 0 auto;
      color:#9ED3DC;
   }
-
+/* ── UPDATED ICON CONTAINER ── */
+  .faq-nav-icon-wrapper {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: var(--active-color);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 14px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
   /* ── GRID & SIDEBAR ── */
   .faq-grid {
     display: grid;
@@ -195,14 +217,13 @@ const styles = `
   .faq-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
   .faq-answer { padding: 0 24px 24px 24px; color: var(--text-muted); line-height: 1.6; font-size: 15px; }
 `;
-
 const categories = [
-  { name: "General", sub: "Platform basics", color: "var(--color-1)" },
-  { name: "Technical", sub: "Setup & Speed", color: "var(--color-2)" },
-  { name: "Security", sub: "Privacy & Fraud", color: "var(--color-3)" },
-  { name: "Account", sub: "Porting & Billing", color: "var(--color-4)" },
-  { name: "Features", sub: "AI & Integrations", color: "var(--color-5)" },
-  { name: "Support", sub: "Emergency & Help", color: "var(--color-6)" },
+  { name: "General", sub: "Platform basics", color: "var(--color-1)", icon: Globe },
+  { name: "Technical", sub: "Setup & Speed", color: "var(--color-2)", icon: Settings },
+  { name: "Security", sub: "Privacy & Fraud", color: "var(--color-3)", icon: ShieldCheck },
+  { name: "Account", sub: "Porting & Billing", color: "var(--color-4)", icon: UserCircle },
+  { name: "Features", sub: "AI & Integrations", color: "var(--color-5)", icon: Cpu },
+  { name: "Support", sub: "Emergency & Help", color: "var(--color-6)", icon: LifeBuoy },
 ];
 
 const faqs = [
@@ -250,12 +271,14 @@ export default function ProfessionalVoIPFAQ() {
 
   const filtered = faqs.filter(f => 
     f.cat === activeCat && 
-    (f.q.toLowerCase().includes(search.toLowerCase()) || f.a.toLowerCase().includes(search.toLowerCase()))
+    (f.q.toLowerCase().includes(search.toLowerCase()))
   );
 
-  const currentColor = categories.find(c => c.name === activeCat)?.color || "var(--color-1)";
+  const activeCategoryData = categories.find(c => c.name === activeCat);
 
-  return (
+
+
+ return (
     <div className="faq-root">
       <style>{styles}</style>
       <section className="faq-section">
@@ -268,47 +291,44 @@ export default function ProfessionalVoIPFAQ() {
           <div className="faq-grid">
             <aside className="faq-sidebar">
               <nav className="faq-nav">
-                {categories.map((cat, idx) => (
-                  <div 
-                    key={cat.name} 
-                    className={`faq-nav-item ${activeCat === cat.name ? 'active' : ''}`}
-                    style={{ '--active-color': cat.color }}
-                    onClick={() => setActiveCat(cat.name)}
-                  >
-                    <div className="faq-nav-circle">{String(idx + 1).padStart(2, '0')}</div>
-                    <div className="faq-nav-text">
-                      <span className="faq-nav-label">{cat.name}</span>
-                      <span className="faq-nav-sub">{cat.sub}</span>
+                {categories.map((cat) => {
+                  const Icon = cat.icon;
+                  return (
+                    <div 
+                      key={cat.name} 
+                      className={`faq-nav-item ${activeCat === cat.name ? 'active' : ''}`}
+                      style={{ '--active-color': cat.color }}
+                      onClick={() => setActiveCat(cat.name)}
+                    >
+                      <div className="faq-nav-icon-wrapper">
+                        <Icon size={22} strokeWidth={2.5} />
+                      </div>
+                      <div className="faq-nav-text">
+                        <span className="faq-nav-label">{cat.name}</span>
+                        <span className="faq-nav-sub">{cat.sub}</span>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
               </nav>
             </aside>
 
             <div className="faq-content-main">
               <div className="faq-search-area">
-                <svg className="faq-search-icon" width="20" height="20" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
-                  <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
-                </svg>
+                <Search className="faq-search-icon" size={20} />
                 <input 
                   className="faq-search-input"
                   type="text" 
-                  placeholder="Search 21 available questions..." 
+                  placeholder={`Search in ${activeCat}...`} 
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                 />
               </div>
 
               <div className="faq-main-list">
-                {filtered.length > 0 ? (
-                  filtered.map(faq => (
-                    <FAQCard key={faq.id} faq={faq} color={currentColor} />
-                  ))
-                ) : (
-                  <div style={{ padding: '60px', textAlign: 'center', color: 'var(--text-muted)' }}>
-                    No results found in this category.
-                  </div>
-                )}
+                {filtered.map(faq => (
+                  <FAQCard key={faq.id} faq={faq} color={activeCategoryData.color} />
+                ))}
               </div>
             </div>
           </div>

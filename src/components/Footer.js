@@ -4,405 +4,185 @@ import {
   FaFacebookF,
   FaTwitter,
   FaWhatsapp,
-  FaMicrosoft
+  FaPhoneAlt,
+  FaEnvelope,
+  FaMapMarkerAlt,
 } from "react-icons/fa";
-import logo from "../assets/footerLogo.png";
-const socials = [
-  { icon: <FaLinkedinIn />, title: "LinkedIn", color: "#0A66C2" },
-  { icon: <FaFacebookF />, title: "Facebook", color: "#1877F2" },
-  { icon: <FaTwitter />, title: "Twitter", color: "#1DA1F2" },
-  { icon: <FaWhatsapp />, title: "WhatsApp", color: "#25D366" },
-  { icon: <FaMicrosoft />, title: "Microsoft Teams", color: "#6264A7" },
-];
+// Import your logo as before
+import logo from "../assets/logo_footer-removebg-preview.png";
 
-const bgIcons = [
-  { symbol: "✦", style: "top-[12%] left-[8%] text-[32px]", delay: "0s", duration: "6s" },
-  { symbol: "◈", style: "top-[30%] left-[22%] text-[20px]", delay: "-3s", duration: "8s" },
-  { symbol: "⬡", style: "top-[15%] left-[42%] text-[26px]", delay: "-1s", duration: "7s" },
-  { symbol: "✦", style: "top-[50%] left-[58%] text-[18px]", delay: "-4s", duration: "9s" },
-  { symbol: "◈", style: "top-[10%] right-[18%] text-[30px]", delay: "-6s", duration: "10s" },
-  { symbol: "⬡", style: "top-[60%] right-[10%] text-[22px]", delay: "-2s", duration: "7s" },
-  { symbol: "✧", style: "bottom-[25%] left-[5%] text-[24px]", delay: "-7s", duration: "11s" },
-  { symbol: "◈", style: "bottom-[15%] left-[38%] text-[18px]", delay: "-1s", duration: "6s" },
-  { symbol: "✦", style: "top-[72%] right-[38%] text-[28px]", delay: "-5s", duration: "8s" },
-  { symbol: "✧", style: "top-[5%] right-[52%] text-[15px]", delay: "-2s", duration: "9s" },
-];
-
-const links = {
-  Product: [
-    "VoIP Calling",
-    "Virtual Numbers",
-    "Call Routing",
+const footerLinks = {
+  Services: [
+    "Cloud PBX Solutions",
     "SIP Trunking",
-    "Call Analytics"
+    "Virtual Phone Numbers",
+    "IVR Systems",
+    "International Calling",
   ],
-
   Company: [
-    "Home",
-    "About Us",
-    "Services",
-    "Contact",
-    "FAQ"
+    "About Voxentrax",
+    "Our Network",
+    "Success Stories",
+    "Latest News",
+    "Contact Sales",
   ],
-
-  Support: [
-    "Setup Guide",
-    "VoIP Documentation",
-    "Network Status",
-    "Technical Support",
-    "API & Developer Docs"
+  Legal: [
+    "Privacy Policy",
+    "Terms of Service",
+    "Service Level Agreement",
+    "Regulatory Info",
+    "Cookie Policy",
   ],
 };
 
-const features = [
-  { icon: "🔒", title: "Secure & Private", sub: "End-to-end encrypted" },
-  { icon: "⚡", title: "Lightning Fast", sub: "99.99% uptime SLA" },
-  { icon: "🌍", title: "Global CDN", sub: "30+ edge locations" },
-  { icon: "🤖", title: "AI Powered", sub: "Smart automation" },
-  { icon: "💎", title: "Premium Quality", sub: "Award-winning design" },
+const telecomFeatures = [
+  { icon: "📡", title: "99.99% Uptime", sub: "Carrier-grade reliability" },
+  { icon: "🔒", title: "Secure Voice", sub: "End-to-end encryption" },
+  { icon: "🌍", title: "Global Reach", sub: "Presence in 120+ countries" },
+  { icon: "⚡", title: "Low Latency", sub: "Edge-optimized routing" },
 ];
 
-export default function AnimatedFooter() {
+export default function TelecomFooter() {
   const [email, setEmail] = useState("");
-  const [subscribed, setSubscribed] = useState(false);
-  const [hoveredLink, setHoveredLink] = useState(null);
-  const [hoveredFeat, setHoveredFeat] = useState(null);
-  const [hoveredBadge, setHoveredBadge] = useState(null);
-
-  const handleSubscribe = () => {
-    if (email) {
-      setSubscribed(true);
-      setTimeout(() => setSubscribed(false), 3000);
-      setEmail("");
-    }
-  };
 
   return (
-    <>
-      <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;700&display=swap');
+    <footer className="relative bg-[#0f172a] text-white pt-16 pb-8 overflow-hidden font-sans">
+      {/* Subtle Background Infographic Pattern (Inspired by Image 2) */}
+      <div className="absolute top-0 right-0 w-1/3 h-full opacity-5 pointer-events-none">
+        <div className="absolute top-10 right-[-50px] w-64 h-64 border-[40px] border-orange-500 rounded-full" />
+        <div className="absolute bottom-20 right-20 w-32 h-32 border-[20px] border-cyan-400 rounded-full" />
+      </div>
 
-        .footer-font { font-family: 'Outfit', sans-serif; }
-        .logo-font   { font-family: 'Space Grotesk', sans-serif; }
-
-        @keyframes floatOrb {
-          0%   { transform: translate(0,0) scale(1); }
-          25%  { transform: translate(20px,-30px) scale(1.08); }
-          50%  { transform: translate(40px,10px) scale(0.95); }
-          75%  { transform: translate(-10px,30px) scale(1.05); }
-          100% { transform: translate(0,0) scale(1); }
-        }
-        @keyframes driftIcon {
-          0%,100% { transform: translateY(0) rotate(0deg); opacity: 0.07; }
-          50%      { transform: translateY(-18px) rotate(15deg); opacity: 0.13; }
-        }
-        @keyframes gridPulse {
-          0%,100% { opacity: 0.5; }
-          50%      { opacity: 1; }
-        }
-        @keyframes pulseRing {
-          0%   { transform: scale(0.8); opacity: 0.6; }
-          100% { transform: scale(2.5); opacity: 0; }
-        }
-        @keyframes logoBounce {
-          0%,100% { transform: translateY(0); }
-          50%      { transform: translateY(-4px); }
-        }
-        @keyframes slideUp {
-          from { opacity: 0; transform: translateY(24px); }
-          to   { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInLink {
-          from { opacity: 0; transform: translateX(-8px); }
-          to   { opacity: 1; transform: translateX(0); }
-        }
-
-        .float-orb      { animation: floatOrb linear infinite; }
-        .drift-icon     { animation: driftIcon ease-in-out infinite; }
-        .grid-pulse     { animation: gridPulse 8s ease-in-out infinite; }
-        .pulse-ring-anim{ animation: pulseRing 4s ease-out infinite; }
-        .logo-bounce    { animation: logoBounce 3s ease-in-out infinite; }
-        .slide-up-1     { animation: slideUp 0.7s ease both; }
-        .slide-up-2     { animation: slideUp 0.8s ease 0.1s both; }
-        .slide-up-3     { animation: slideUp 0.9s ease 0.2s both; }
-        .slide-up-4     { animation: slideUp 1.0s ease 0.3s both; }
-
-        .link-underline {
-          position: relative; display: inline-flex; align-items: center; gap: 6px;
-          text-decoration: none; transition: all 0.25s ease;
-        }
-        .link-underline::after {
-          content: ''; position: absolute; bottom: -2px; left: 0;
-          width: 0; height: 1px; background: #67e8f9; transition: width 0.3s ease;
-        }
-        .link-underline:hover::after { width: 100%; }
-
-/* DEFAULT INPUT */
-.nl-input {
-  color: #908f8f;                 /* text color */
-  border: 1px solid #0891b2;      /* border color */
-  outline: none;
-  box-shadow: none;
-}
-
-      `}</style>
-
-      <footer
-        className="footer-font relative overflow-hidden"
-        style={{
-background: "#f29810",
-          minHeight: 480,
-        }}
-      >
-        {/* ── Background Layer ── */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden">
-          {/* Grid */}
-          <div
-            className="grid-pulse absolute inset-0"
-            style={{
-              backgroundImage:
-                "linear-gradient(rgba(103,232,249,0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(103,232,249,0.08) 1px, transparent 1px)",
-              backgroundSize: "60px 60px",
-            }}
-          />
-
-          {/* Orbs */}
-          {[
-            { size: 320, color: "#67e8f9", top: -80, left: -60, dur: "18s", delay: "0s" },
-            { size: 200, color: "#38bdf8", bottom: 20, right: 80, dur: "14s", delay: "-5s" },
-            { size: 150, color: "#22d3ee", top: 60, right: 220, dur: "20s", delay: "-9s" },
-            { size: 100, color: "#7dd3fc", bottom: 80, left: 200, dur: "12s", delay: "-3s" },
-          ].map((o, i) => (
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        {/* Top Feature Bar (Telecom Infographic Style) */}
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 mb-12 border-b border-gray-800">
+          {telecomFeatures.map((feat, i) => (
             <div
               key={i}
-              className="float-orb absolute rounded-full"
-              style={{
-                width: o.size, height: o.size, background: o.color, opacity: 0.12,
-                top: o.top, left: o.left, bottom: o.bottom, right: o.right,
-                animationDuration: o.dur, animationDelay: o.delay,
-              }}
-            />
-          ))}
-
-          {/* Pulse rings */}
-          <div
-            className="pulse-ring-anim absolute rounded-full"
-            style={{ width: 300, height: 300, top: -50, right: 100, border: "1px solid rgba(165,180,252,0.2)", animationDelay: "0s" }}
-          />
-          <div
-            className="pulse-ring-anim absolute rounded-full"
-            style={{ width: 200, height: 200, bottom: 60, left: 120, border: "1px solid rgba(165,180,252,0.2)", animationDelay: "2s" }}
-          />
-
-          {/* Floating icons */}
-          {bgIcons.map((ic, i) => (
-            <div
-              key={i}
-              className={`drift-icon absolute select-none ${ic.style}`}
-              style={{ color: "#e0e7ff", animationDuration: ic.duration, animationDelay: ic.delay }}
+              className="flex items-center gap-4 group transition-all duration-300"
             >
-              {ic.symbol}
+              <div className="w-12 h-12 flex items-center justify-center bg-gray-800 rounded-2xl group-hover:bg-orange-500 transition-colors duration-300 text-2xl">
+                {feat.icon}
+              </div>
+              <div>
+                <h4 className="font-bold text-sm tracking-wide">
+                  {feat.title}
+                </h4>
+                <p className="text-xs text-gray-400">{feat.sub}</p>
+              </div>
             </div>
           ))}
         </div>
 
-        {/* ── Main Content ── */}
-        <div className="relative z-10 max-w-7xl mx-auto px-12 pt-12">
-
-          {/* Logo */}
-<div className="slide-up-1 flex items-center gap-4 mb-9">
-  <a href="/">
-    <div
-      className="p-2 rounded-lg shadow-sm"
-      style={{ background: "#ffffff" }}
-    >
-      <img
-        src={logo}
-        alt="Company Logo"
-        className="h-12 w-auto object-contain cursor-pointer hover:opacity-90 transition"
-      />
-    </div>
-  </a>
+        {/* Main Footer Content (Inspired by Clothes Website Layout) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          {/* Brand & Newsletter Section */}
+          <div className="lg:col-span-4">
+<div className="bg-white p-1 rounded-xl inline-block shadow-md">
+<img
+  src={logo}
+  alt="Voxentrax"
+  className="w-[220px] md:w-[260px] h-[80px] object-contain"
+/>
 </div>
+            <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-xs">
+              Empowering global enterprises with next-generation VoIP
+              infrastructure and seamless communication APIs.
+            </p>
 
-          {/* Columns */}
-          <div className="slide-up-2 grid gap-10" style={{ gridTemplateColumns: "2fr 1fr 1fr 1fr" }}>
-
-            {/* About */}
-            <div>
-              <h4 className="text-xs font-semibold tracking-widest uppercase mb-5" style={{ color: "rgb(255, 255, 255)" }}>
-                About
-              </h4>
-              <p className="text-sm font-light leading-7 max-w-[260px]" style={{ color: "rgba(199,210,254,0.85)" }}>
-                Building the future one pixel at a time. We craft beautiful, high-performance digital experiences that connect brands with the people they serve.
-              </p>
-              {/* Socials */}
-<div className="flex gap-2.5 mt-5">
-  {socials.map((s, i) => (
-<button
-  key={i}
-  title={s.title}
-  className="w-9 h-9 rounded-xl flex items-center justify-center text-base cursor-pointer transition-all duration-300 hover:-translate-y-1 hover:scale-110"
-  style={{
-    background: s.color,
-    border: `1px solid ${s.color}`,
-    color: "#fff",
-  }}
->
-  {s.icon}
-</button>
-  ))}
-</div>
+            <h4 className="text-sm font-bold uppercase tracking-widest mb-4">
+              Stay Updated
+            </h4>
+            <div className="flex max-w-sm">
+              <input
+                type="email"
+                placeholder="Enter your business email"
+                className="bg-gray-900 border border-gray-800 px-4 py-3 rounded-l-lg w-full focus:outline-none focus:border-cyan-500 text-sm"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+              <button className="bg-orange-500 hover:bg-orange-600 px-6 py-3 rounded-r-lg font-bold text-sm transition-colors">
+                Subscribe
+              </button>
             </div>
+          </div>
 
-            {/* Link Columns */}
-            {Object.entries(links).map(([heading, items]) => (
-              <div key={heading}>
-                <h4 className="text-xs font-semibold tracking-widest uppercase mb-5" style={{ color: "rgb(255, 255, 255)" }}>
-                  {heading}
+          {/* Links Sections */}
+          <div className="lg:col-span-5 grid grid-cols-3 gap-4">
+            {Object.entries(footerLinks).map(([title, links]) => (
+              <div key={title}>
+                <h4 className="text-orange-500 text-xs font-black uppercase tracking-widest mb-6">
+                  {title}
                 </h4>
-                <ul className="space-y-2.5">
-                  {items.map((item, i) => {
-                    const key = `${heading}-${i}`;
-                    return (
-                      <li key={i} className="fadeInLink" style={{ animationDelay: `${i * 0.05}s` }}>
-                        <a
-                          href="/"
-                          className="link-underline text-sm font-light"
-                          onMouseEnter={() => setHoveredLink(key)}
-                          onMouseLeave={() => setHoveredLink(null)}
-                          style={{
-                            color: hoveredLink === key ? "#fff" : "rgba(224,231,255,0.8)",
-                            transform: hoveredLink === key ? "translateX(4px)" : "translateX(0)",
-                          }}
-                        >
-                          <span
-                            className="w-1.5 h-1.5 rounded-full flex-shrink-0 transition-all duration-300"
-                            style={{
-                              background: hoveredLink === key ? "#67e8f9" : "#22d3ee",
-                              transform: hoveredLink === key ? "scale(1.5)" : "scale(1)",
-                            }}
-                          />
-                          {item}
-                        </a>
-                      </li>
-                    );
-                  })}
+                <ul className="space-y-4">
+                  {links.map((link) => (
+                    <li key={link}>
+                      <a
+                        href="#"
+                        className="text-gray-400 hover:text-cyan-400 text-sm transition-colors duration-200 block"
+                      >
+                        {link}
+                      </a>
+                    </li>
+                  ))}
                 </ul>
               </div>
             ))}
           </div>
 
-          {/* Newsletter */}
-<div
-  className="slide-up-3 flex items-center justify-between gap-6 mt-11 rounded-2xl px-8 py-6 flex-wrap"
-  style={{
-    background: "#ffffff", // ✅ MAIN BOX WHITE
-    border: "1px solid rgba(0,0,0,0.08)",
-    backdropFilter: "blur(10px)",
-  }}
->
-  <div className="flex-1 min-w-[200px]">
-    <h3 className="text-base font-semibold text-gray-900 mb-1">
-      Stay in the loop ✨
-    </h3>
-
-    <p
-      className="text-sm font-light"
-      style={{ color: "rgba(0,0,0,0.6)" }}
-    >
-      Get updates, articles & exclusive deals.
-    </p>
-  </div>
-
-  <div className="flex gap-2.5 flex-1 min-w-[280px]">
-<input
-  type="email"
-  className="nl-input flex-1 rounded-xl px-4 py-2.5 text-sm "
-  placeholder="your@email.com"
-  value={email}
-  onChange={(e) => setEmail(e.target.value)}
-  onKeyDown={(e) => e.key === "Enter" && handleSubscribe()}
-/>
-
-    <button
-      onClick={handleSubscribe}
-      className="rounded-xl px-5 py-2.5 text-sm font-semibold whitespace-nowrap transition-all duration-300 hover:-translate-y-0.5"
-      style={{
-        background: subscribed ? "#a5f3fc" : "#da7e06",
-        color: "#ffffff",
-        boxShadow: "0 4px 15px rgba(0,0,0,0.15)",
-        fontFamily: "inherit",
-      }}
-    >
-      {subscribed ? "Subscribed ✓" : "Subscribe"}
-    </button>
-  </div>
-</div>
-
-          {/* Features Strip */}
-          <div
-            className="slide-up-4 flex flex-wrap mt-9 pt-7"
-            style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}
-          >
-            {features.map((f, i) => (
-              <div
-                key={i}
-                className="flex items-center gap-2.5 px-4 py-2.5 rounded-xl cursor-default flex-1 min-w-[140px] transition-all duration-300"
-                style={{
-                  borderRight: i < features.length - 1 ? "1px solid rgba(255,255,255,0.08)" : "none",
-                  background: hoveredFeat === i ? "rgba(255,255,255,0.06)" : "transparent",
-                }}
-                onMouseEnter={() => setHoveredFeat(i)}
-                onMouseLeave={() => setHoveredFeat(null)}
-              >
-                <div
-                  className="w-9 h-9 rounded-xl flex items-center justify-center text-base flex-shrink-0 transition-all duration-300"
-                  style={{
-                    background: hoveredFeat === i ? "rgba(255,255,255,0.22)" : "rgba(255,255,255,0.12)",
-                    transform: hoveredFeat === i ? "scale(1.2) rotate(-10deg)" : "scale(1) rotate(0deg)",
-                  }}
-                >
-                  {f.icon}
-                </div>
-                <div className="text-xs leading-snug" style={{ color: "rgba(224,231,255,0.85)" }}>
-                  <strong className="block text-sm font-medium text-white">{f.title}</strong>
-                  {f.sub}
-                </div>
+          {/* Contact & Social Section */}
+          <div className="lg:col-span-3">
+            <h4 className="text-sm font-bold uppercase tracking-widest mb-6">
+              Connect With Us
+            </h4>
+            <div className="space-y-4 text-sm text-gray-400">
+              <div className="flex items-center gap-3">
+                <FaPhoneAlt className="text-cyan-400" />
+                <span>+1 (800) VOIP-XTX</span>
               </div>
-            ))}
+              <div className="flex items-center gap-3">
+                <FaEnvelope className="text-cyan-400" />
+                <span>support@voxentrax.com</span>
+              </div>
+              <div className="flex items-start gap-3">
+                <FaMapMarkerAlt className="text-cyan-400 mt-1" />
+                <span>
+                  Global HQ: 123 Tech Plaza, <br />
+                  San Francisco, CA 94105
+                </span>
+              </div>
+            </div>
+
+            <div className="flex gap-4 mt-8">
+              {[
+                <FaLinkedinIn />,
+                <FaTwitter />,
+                <FaFacebookF />,
+                <FaWhatsapp />,
+              ].map((icon, i) => (
+                <a
+                  key={i}
+                  href="#"
+                  className="w-10 h-10 border border-gray-800 rounded-full flex items-center justify-center hover:bg-cyan-500 hover:border-cyan-500 transition-all duration-300"
+                >
+                  {icon}
+                </a>
+              ))}
+            </div>
           </div>
         </div>
 
-        {/* ── Bottom Bar ── */}
-        <div
-          className="relative z-10 max-w-6xl mx-auto px-12 py-4 mt-8 flex items-center justify-between flex-wrap gap-3"
-          style={{ borderTop: "1px solid rgba(255,255,255,0.1)" }}
-        >
-          <span className="text-xs font-light" style={{ color: "rgba(165,180,252,0.7)" }}>
-© 2026 Codostack. Empowering modern communication solutions.
-          </span>
-          <div className="flex gap-2 flex-wrap">
-            {["Privacy Policy", "Terms of Service", "Cookie Settings", "Accessibility"].map((b, i) => (
-              <span
-                key={i}
-                className="text-xs font-medium px-2.5 py-1 rounded-md cursor-pointer transition-all duration-300"
-                onMouseEnter={() => setHoveredBadge(i)}
-                onMouseLeave={() => setHoveredBadge(null)}
-                style={{
-                  color: hoveredBadge === i ? "#fff" : "rgba(199,210,254,0.8)",
-                  background: hoveredBadge === i ? "rgba(255,255,255,0.16)" : "rgba(255,255,255,0.08)",
-                  border: "1px solid rgba(255,255,255,0.12)",
-                  transform: hoveredBadge === i ? "translateY(-1px)" : "translateY(0)",
-                  letterSpacing: "0.3px",
-                }}
-              >
-                {b}
-              </span>
-            ))}
+        {/* Bottom Bar */}
+        <div className="mt-16 pt-8 border-t border-gray-800 flex flex-col md:row justify-between items-center gap-4 text-xs text-gray-500">
+          <p>© 2026 Voxentrax Telecom Systems. All rights reserved.</p>
+          <div className="flex gap-6">
+            <span className="flex items-center gap-1">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              System Status: Operational
+            </span>
           </div>
         </div>
-      </footer>
-    </>
+      </div>
+    </footer>
   );
 }

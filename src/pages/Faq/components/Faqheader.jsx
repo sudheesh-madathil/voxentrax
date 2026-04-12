@@ -93,7 +93,7 @@ const bars = [
 {i === 0 && (
   <foreignObject x={bar.x + HALF - 28} y={y + 10} width="56" height="56">
     <div className="w-full h-full flex items-start justify-center">
-      <FaUserPlus className="text-white text-3xl mt-1" />
+      <FaUserPlus className="text-white text-6xl mt-1" />
     </div>
   </foreignObject>
 )}
@@ -102,7 +102,7 @@ const bars = [
 {i === 1 && (
   <foreignObject x={bar.x + HALF - 28} y={y + 10} width="56" height="56">
     <div className="w-full h-full flex items-start justify-center">
-      <FaMobileAlt className="text-white text-3xl mt-1" />
+      <FaMobileAlt className="text-white text-6xl mt-1" />
     </div>
   </foreignObject>
 )}
@@ -111,7 +111,7 @@ const bars = [
 {i === 2 && (
   <foreignObject x={bar.x + HALF - 32} y={y + 6} width="64" height="64">
     <div className="w-full h-full flex items-start justify-center">
-      <BiConversation  className="text-white text-4xl mt-1" />
+      <BiConversation  className="text-white text-7xl mt-1" />
     </div>
   </foreignObject>
 )}
@@ -120,7 +120,7 @@ const bars = [
 {i === 3 && (
   <foreignObject x={bar.x + HALF - 28} y={y + 10} width="56" height="56">
     <div className="w-full h-full flex items-start justify-center">
-      <FaSearch className="text-white text-3xl mt-1" />
+      <FaSearch className="text-white text-6xl mt-1" />
     </div>
   </foreignObject>
 )}
@@ -129,7 +129,7 @@ const bars = [
 {i === 4 && (
   <foreignObject x={bar.x + HALF - 28} y={y + 10} width="56" height="56">
     <div className="w-full h-full flex items-start justify-center">
-      <BiTargetLock  className="text-white text-3xl mt-1" />
+      <BiTargetLock  className="text-white text-7xl " />
     </div>
   </foreignObject>
 )}
