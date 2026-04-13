@@ -206,7 +206,7 @@ export default function VoIPHero() {
             </div>
           </div>
 
-          {/* <BottomSignalSVG /> */}
+ 
 
           {/* Legend */}
           {/* <div className="flex justify-center gap-4 mt-2 flex-wrap">
@@ -267,17 +267,7 @@ function SignalWaveSVG() {
   );
 }
 
-function BottomSignalSVG() {
-  return (
-    <svg width="100%" height="50" viewBox="0 0 520 50" xmlns="http://www.w3.org/2000/svg" style={{ display: "block", marginTop: 8 }}>
-      <path d="M20 25 L500 25" fill="none" stroke="#e0e7ff" strokeWidth="1" />
-      <path d="M20 25 L500 25" fill="none" stroke="#6366f1" strokeWidth="1.5" strokeDasharray="10 8" style={{ animation: "signalFlow 2s linear infinite" }} />
-      <circle r="4" fill="#6366f1"><animateMotion dur="2s" repeatCount="indefinite" path="M20 25 L500 25" /></circle>
-      <circle r="3" fill="#10b981"><animateMotion dur="2s" repeatCount="indefinite" begin="0.6s" path="M500 25 L20 25" /></circle>
-      <circle r="3" fill="#f59e0b"><animateMotion dur="2s" repeatCount="indefinite" begin="1.2s" path="M20 25 L500 25" /></circle>
-    </svg>
-  );
-}
+
 
 const PhoneIcon = ({ className }) => (
   <svg className={className} fill="currentColor" viewBox="0 0 24 24">
