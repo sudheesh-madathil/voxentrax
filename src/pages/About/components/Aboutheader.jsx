@@ -1,467 +1,291 @@
-import { useState, useEffect } from "react";
+import React from "react";
 
-export default function VOIPAboutHeader() {
-  const [tick, setTick] = useState(0);
-  const [callSec, setCallSec] = useState(0);
-  const [activeLine, setActiveLine] = useState(0);
-  const [packetIdx, setPacketIdx] = useState(0);
-  console.log(activeLine);
+const stats = [
+  { label: "Calls", val: "247", color: "#7c3aed", bg: "#f3e8ff" },
+  { label: "Queued", val: "3", color: "#ea580c", bg: "#fff7ed" },
+  { label: "Avg Wait", val: "0:18", color: "#2563eb", bg: "#eff6ff" },
+  { label: "CSAT", val: "98%", color: "#059669", bg: "#ecfdf5" },
+];
 
-  useEffect(() => {
-    const t = setInterval(() => {
-      setTick((p) => p + 1);
-      setCallSec((p) => p + 1);
-    }, 1000);
+const agents = [
+  { initials: "A", color: "#7c3aed" },
+  { initials: "B", color: "#059669" },
+  { initials: "C", color: "#2563eb" },
+  { initials: "D", color: "#ea580c" },
+];
 
-    const l = setInterval(() => setActiveLine((p) => (p + 1) % 4), 1800);
-    const pk = setInterval(() => setPacketIdx((p) => (p + 1) % 6), 600);
+const waveBars = [4, 8, 14, 10, 18, 12, 20, 16, 10, 14];
+const encBars = Array.from({ length: 12 }, (_, i) => i);
+const countries = ["US", "UK", "IN", "AU", "JP", "SG", "DE", "AE"];
 
-    return () => {
-      clearInterval(t);
-      clearInterval(l);
-      clearInterval(pk);
-    };
-  }, []);
-
-  const mins = String(Math.floor(callSec / 60)).padStart(2, "0");
-  const secs = String(callSec % 60).padStart(2, "0");
-
-  const phoneKeys = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "*",
-    "0",
-    "#",
-  ];
-
-  const packets = [
-    { label: "SIP INVITE", color: "#6366f1", bg: "#eef2ff" },
-    { label: "100 Trying", color: "#06b6d4", bg: "#ecfeff" },
-    { label: "180 Ringing", color: "#f59e0b", bg: "#fffbeb" },
-    { label: "200 OK", color: "#10b981", bg: "#ecfdf5" },
-    { label: "ACK", color: "#8b5cf6", bg: "#f5f3ff" },
-    { label: "RTP Stream", color: "#ef4444", bg: "#fff1f2" },
-  ];
-
-  const waveH = (i) =>
-    12 +
-    Math.abs(Math.sin((i + tick * 0.5) * 0.6)) * 30 +
-    Math.abs(Math.cos((i + tick * 0.3) * 0.85)) * 10;
-
-  const waveColors = [
-    "#6366f1",
-    "#8b5cf6",
-    "#3b82f6",
-    "#06b6d4",
-    "#10b981",
-    "#f59e0b",
-    "#ef4444",
-    "#ec4899",
-  ];
-
+export default function VoIPHero() {
   return (
-    <>
-      {/* ================= STYLES (UNCHANGED) ================= */}
+<div className="min-h-screen bg-white flex items-center justify-between px-1">
+      
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@400;600;700;800&family=Instrument+Sans:wght@400;500&display=swap');
-
-        @keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
-        @keyframes popIn{from{opacity:0;transform:scale(.82)}to{opacity:1;transform:scale(1)}}
-        @keyframes floatA{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-        @keyframes floatB{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
-        @keyframes floatC{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
-        @keyframes bgBlob{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
-        @keyframes bgBlobR{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
-        @keyframes dotGrid{0%,100%{opacity:.04}50%{opacity:.09}}
-        @keyframes packetSlide{0%{opacity:0;transform:translateX(-18px)}20%{opacity:1}80%{opacity:1}100%{opacity:0;transform:translateX(18px)}}
-        @keyframes signalRing{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.8);opacity:0}}
-        @keyframes dialPulse{0%,100%{box-shadow:0 0 0 0 rgba(99,102,241,.5)}50%{box-shadow:0 0 0 14px rgba(99,102,241,0)}}
-
-        .font-inst{font-family:'Instrument Sans',sans-serif;}
+        @keyframes waveBar {
+          from { transform: scaleY(0.5); }
+          to { transform: scaleY(1.5); }
+        }
+        @keyframes signalFlow {
+          to { stroke-dashoffset: -100; }
+        }
+        @keyframes float {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-10px); }
+        }
+        @keyframes popIn {
+          0% { opacity: 0; transform: scale(0.9); }
+          100% { opacity: 1; transform: scale(1); }
+        }
+        .animate-spin-slow { animation: spin 8s linear infinite; }
+        .animate-spin-reverse { animation: spin 6s linear infinite reverse; }
+        .animate-float-b { animation: float 4s ease-in-out infinite; }
+        .animate-pop-in { animation: popIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) both; }
       `}</style>
 
-      {/* ================= SECTION ================= */}
-      {/* FIX 1: removed invalid w-8xl */}
-      {/* FIX 2: centered container */}
-      <section className="relative min-h-[80vh] w-full bg-white overflow-hidden flex items-center justify-center font-inst">
-        {/* Background */}
-        <div className="absolute inset-0 pointer-events-none">
-          <div
-            className="absolute inset-0"
-            style={{
-              backgroundImage: "radial-gradient(#6366f1 1px,transparent 1px)",
-              backgroundSize: "34px 34px",
-              animation: "dotGrid 5s ease-in-out infinite",
-              opacity: 0.05,
-            }}
-          />
-        </div>
-
-        {/* ================= MAIN GRID ================= */}
-        {/* FIX 3: perfectly centered container */}
-        <div className="relative z-10 w-full max-w-8xl mx-auto px-6 lg:px-16 grid grid-cols-2 max-[1300px]:grid-cols-1 gap-20 items-center py-16">
-        {/* <div className="relative z-10 w-full max-w-8xl mx-auto px-6 ml-15px lg:px-16 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center py-16"> */}
-          {/* ================= LEFT SIDE ================= */}
-    <div className="flex flex-col gap-7 ml-[25px] max-[1300px]:items-center max-[1300px]:text-center">
-      <h1 className="font-['Syne',sans-serif] font-default text-4xl md:text-4xl leading-[1.08] tracking-relaxing text-gray-700">
-  {`Power of the `}
-  <span className="text-blue-500">Telecommunication</span>
-</h1>
-
-            <p
-              className="font-sans text-gray-600 text-sm sm:text-base md:text-[17px]
-leading-6 sm:leading-7 tracking-normal text-justify max-w-full lg:max-w-[620px]"
-            >
-              Our mission is to simplify business communication through powerful
-              VoIP technology built for speed, reliability, and scalability. By
-              combining cloud infrastructure with intelligent call management,
-              we deliver clear, secure communication experiences that empower
-              teams and support business growth worldwide.
+      <div className="max-w-7xl mx-auto grid lg:grid-cols-2  justify-center gap-20 p-1 items-center">
+        
+        {/* ── Left Side: Content ── */}
+        <div className="space-y-8 animate-pop-in">
+          <div className="space-y-4">
+          
+            <h1 className="text-4xl lg:text-4xl  text-gray-600 leading-tight mb-6">
+               
+              Cloud VoIP Built for
+              <span className="text-orange-600">  Modern Teams.</span>
+            </h1>
+            <p className="text-lg text-slate-600 max-w-lg leading-relaxed">
+              Experience crystal-clear voice quality and enterprise-grade 
+              security. Connect your global workforce with sub-80ms latency 
+              and real-time analytics.
             </p>
-            <div className="flex flex-wrap gap-3 mt-4">
-                {/* <div className="flex flex-wrap justify-center lg:justify-start gap-3 mt-4"></div> */}
-              <button
-                className="inline-flex items-center gap-2 px-6 py-3 squared-xl text-white text-sm font-semibold 
-  bg-blue-500 hover:bg-blue-600 
-  transition-all duration-200 border-0 cursor-pointer"
-              >
-                Get Started
-              </button>
-              <button
-                className="inline-flex items-center gap-2 px-5 py-3 squared-xl text-sm font-medium 
-  text-gray-700 border border-gray-300 bg-gray-100 
-  hover:bg-gray-200 hover:border-gray-400 
-  transition-all duration-200 cursor-pointer"
-              >
-                More Details
-              </button>
-            </div>
           </div>
 
-          {/* ================= RIGHT SIDE ================= */}
-          {/* DESIGN UNCHANGED — only alignment wrapper fixed */}
-          <div
-            className="relative "
-            style={{
-              animation: "popIn .9s ease forwards",
-              animationDelay: ".2s",
-              opacity: 0,
-             
-            }}
-          >
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4   max-[1300px]:hidden">
-    
-         
-              {/* ── CARD 1: Softphone Dialpad ── */}
-              <div
-                className="bg-white rounded-3xl border border-slate-100 shadow-xl p-5 col-span-1"
-                style={{ animation: "floatA 5s ease-in-out infinite" }}
-              >
-                {/* caller strip */}
-                <div
-                  className="flex items-center gap-3 mb-4 p-3 rounded-2xl"
-                  style={{ background: "#eef2ff" }}
-                >
-                  <div className="relative">
-                    {[0, 1].map((i) => (
-                      <div
-                        key={i}
-                        className="absolute inset-0 rounded-full border-2 border-indigo-400"
-                        style={{
-                          animation: `signalRing 2s ease-out infinite`,
-                          animationDelay: `${i * 0.9}s`,
-                          opacity: 0,
-                        }}
-                      />
-                    ))}
-                    <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center text-sm font-black text-white relative z-10"
-                      style={{
-                        background: "linear-gradient(135deg,#6366f1,#8b5cf6)",
-                        animation: "dialPulse 2s ease-in-out infinite",
-                      }}
-                    >
-                      CV
-                    </div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-xs font-bold text-indigo-700 truncate">
-                      +1 (8) 0.04-0000
-                    </p>
-                    <div className="flex items-center gap-1 mt-0.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                      <span className="text-xs text-emerald-600 font-semibold tabular-nums">
-                        {mins}:{secs}
-                      </span>
-                    </div>
-                  </div>
-                </div>
+          <div className="flex flex-wrap items-center gap-4">
+            <button className="px-8 py-4 bg-blue-400 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-lg shadow-indigo-200 active:scale-95">
+              Get Started Free
+            </button>
+            <button className="px-8 py-4 bg-white border border-blue-400 text-slate-700 font-bold rounded-xl hover:bg-slate-50 transition-all flex items-center gap-2">
+              Learn More
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
 
-                {/* dialpad */}
-                <div className="grid grid-cols-3 gap-1.5 mb-3">
-                  {phoneKeys.map((k, i) => (
-                    <button
-                      key={k}
-                      className="
-        h-9
-        rounded-xl
-        text-sm
-        font-bold
-        text-black
-        bg-gray-100
-        border border-gray-200
-        transition-all duration-150
-        hover:scale-95
-        hover:bg-gray-200
-        active:scale-90
-      "
-                      style={{
-                        animation: `keyPop .3s ease ${
-                          i % 3 === 1 ? "forwards" : ""
-                        }`,
-                      }}
-                    >
-                      {k}
-                    </button>
-                  ))}
-                </div>
-
-                {/* end call */}
-                <button
-                  className="
-    w-full
-    py-2.5
-    rounded-2xl
-    text-white
-    text-xs
-    font-bold
-    flex
-    items-center
-    justify-center
-    gap-2
-    bg-gradient-to-r
-    from-green-200
-    to-green-300
-    hover:from-green-200
-    hover:to-green-300
-    transition-all
-    duration-200
-  "
-                >
-                  <svg
-                    className="w-4 h-4"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z" />
-                  </svg>
-                  End Call
-                </button>
-              </div>
-
-              {/* ── CARD 2: SIP Packet flow + waveform ── */}
-              <div className="flex flex-col gap-4 col-span-1">
-                {/* SIP packet flow */}
-                <div
-                  className="bg-white rounded-3xl border border-slate-100 shadow-xl p-4"
-                  style={{
-                    animation: "floatB 4.5s ease-in-out infinite",
-                    animationDelay: ".6s",
-                  }}
-                >
-                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider mb-3">
-                    SIP Signaling
-                  </p>
-
-                  {/* arrow line */}
-                  <div className="relative flex items-center justify-between mb-3 px-1">
-                    <div
-                      className="text-xs font-bold px-2 py-1 rounded-lg text-white"
-                      style={{ background: "#6366f1" }}
-                    >
-                      Client
-                    </div>
-                    <div
-                      className="flex-1 mx-2 h-px relative overflow-hidden"
-                      style={{ background: "#e0e7ff" }}
-                    >
-                      <div
-                        className="absolute top-1/2 -translate-y-1/2 h-px w-6 rounded-full"
-                        style={{
-                          background: "#6366f1",
-                          left: `${(packetIdx / 6) * 100}%`,
-                          transition: "left .6s linear",
-                          boxShadow: "0 0 6px #6366f1",
-                        }}
-                      />
-                    </div>
-                    <div
-                      className="text-xs font-bold px-2 py-1 rounded-lg text-white"
-                      style={{ background: "#06b6d4" }}
-                    >
-                      Server
-                    </div>
-                  </div>
-
-                  {/* current packet badge */}
-                  <div className="flex items-center justify-center">
-                    <div
-                      key={packetIdx}
-                      className="px-4 py-2 rounded-xl text-xs font-black border"
-                      style={{
-                        color: packets[packetIdx].color,
-                        background: packets[packetIdx].bg,
-                        borderColor: packets[packetIdx].color + "40",
-                        animation: "packetSlide .6s ease",
-                      }}
-                    >
-                      {packets[packetIdx].label}
-                    </div>
-                  </div>
-                </div>
-
-                {/* voice waveform */}
-                <div
-                  className="bg-white rounded-3xl border border-slate-100 shadow-xl p-4 flex flex-col h-full"
-                  style={{
-                    animation: "floatC 5.5s ease-in-out infinite",
-                    animationDelay: "1.2s",
-                  }}
-                >
-                  {/* TOP HEADER */}
-                  <div className="flex items-center justify-between mb-2">
-                    <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                      Voice Wave
-                    </p>
-                    <span className="text-xs font-bold text-emerald-500">
-                      ● LIVE
-                    </span>
-                  </div>
-
-                  {/* bottom content wrapper */}
-                  <div className="mt-auto">
-                    {/* WAVE ANIMATION */}
-                    <div className="flex items-end gap-px h-12 mb-2">
-                      {Array.from({ length: 40 }, (_, i) => ({
-                        h: waveH(i),
-                        color: waveColors[i % waveColors.length],
-                      })).map((b, i) => (
-                        <div
-                          key={i}
-                          className="flex-1 rounded-sm transition-all duration-300"
-                          style={{
-                            height: `${(b.h / 60) * 48}px`,
-                            background: b.color,
-                            opacity: 0.65 + (b.h / 60) * 0.35,
-                          }}
-                        />
-                      ))}
-                    </div>
-
-                    {/* FOOTER INFO */}
-                    <div className="flex justify-between text-xs text-slate-400">
-                      <span>Opus · 48kHz</span>
-                      <span className="font-bold text-emerald-500">
-                        MOS 4.5
-                      </span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* ── CARD 4: Network nodes ── */}
-              <div
-                className="bg-white rounded-3xl border border-slate-100 shadow-xl p-4 col-span-2"
-                style={{
-                  animation: "floatB 5s ease-in-out infinite",
-                  animationDelay: "1s",
-                }}
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <p className="text-xs font-bold text-slate-400 uppercase tracking-wider">
-                    Global Network
-                  </p>
-                  <span className="text-xs font-bold text-slate-400">
-                    38 PoPs
-                  </span>
-                </div>
-                <div className="flex items-center gap-3">
-                  {[
-                    { name: "US-East", ms: "12ms", color: "#6366f1", pct: 94 },
-                    { name: "EU-West", ms: "18ms", color: "#06b6d4", pct: 82 },
-                    { name: "AP-South", ms: "41ms", color: "#f59e0b", pct: 58 },
-                    { name: "ME-North", ms: "29ms", color: "#10b981", pct: 71 },
-                    { name: "SA-East", ms: "35ms", color: "#ec4899", pct: 65 },
-                  ].map((n, i) => (
-                    <div
-                      key={n.name}
-                      className="flex-1 text-center group cursor-default"
-                      style={{
-                        animation: `popIn .4s ease forwards`,
-                        animationDelay: `${0.3 + i * 0.08}s`,
-                        opacity: 0,
-                      }}
-                    >
-                      <div className="relative mx-auto w-10 h-10 mb-2 flex items-center justify-center">
-                        {/* animated ring */}
-                        <svg className="absolute inset-0" viewBox="0 0 40 40">
-                          <circle
-                            cx="20"
-                            cy="20"
-                            r="17"
-                            fill="none"
-                            stroke="#f1f5f9"
-                            strokeWidth="3"
-                          />
-                          <circle
-                            cx="20"
-                            cy="20"
-                            r="17"
-                            fill="none"
-                            stroke={n.color}
-                            strokeWidth="3"
-                            strokeDasharray={`${n.pct * 1.07} 107`}
-                            strokeLinecap="round"
-                            style={{
-                              transformOrigin: "center",
-                              transform: "rotate(-90deg)",
-                              transition: "stroke-dasharray 1.5s ease",
-                              strokeDashoffset: "0",
-                            }}
-                          />
-                        </svg>
-                        <span
-                          className="text-xs font-black relative z-10"
-                          style={{ color: n.color, fontSize: "9px" }}
-                        >
-                          {n.ms}
-                        </span>
-                      </div>
-                      <p className="text-xs font-semibold text-slate-600">
-                        {n.name}
-                      </p>
-                      <div className="flex items-center justify-center gap-1 mt-0.5">
-                        <span
-                          className="w-1.5 h-1.5 rounded-full animate-pulse"
-                          style={{ background: n.color }}
-                        />
-                        <span className="text-xs text-slate-400">active</span>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
+          <div className="flex items-center gap-6 pt-4 border-t border-slate-200">
+            <div>
+              <div className="text-2xl font-bold text-slate-900">99.9%</div>
+              <div className="text-sm text-slate-500">Uptime SLA</div>
+            </div>
+            <div className="w-px h-10 bg-slate-200" />
+            <div>
+              <div className="text-2xl font-bold text-slate-900">256-bit</div>
+              <div className="text-sm text-slate-500">AES Encryption</div>
             </div>
           </div>
         </div>
-      </section>
-    </>
-  )
+
+        {/* ── Right Side: Your Original Design ── */}
+        <div className="p-8 font-sans relative overflow-hidden rounded-3xl ">
+          {/* Decorative blobs */}
+          {/* <div className="absolute -top-14 -right-14 w-52 h-52 rounded-full bg-white opacity-50 pointer-events-none" />
+          <div className="absolute -bottom-10 -left-10 w-40 h-40 rounded-full bg- opacity-60 pointer-events-none" /> */}
+
+          <div className="relative grid grid-cols-2 gap-4 max-w-xl mx-auto">
+            {/* Center Phone Hub */}
+            <div className="col-span-2 flex justify-center mb-2">
+              <div className="relative w-28 h-28 flex items-center justify-center">
+                <div className="absolute inset-0 rounded-full border-2 border-indigo-200 animate-spin-slow">
+                  <div className="absolute -top-1 left-1/2 -translate-x-1/2 w-2.5 h-2.5 bg-indigo-500 rounded-full" />
+                </div>
+                <div className="absolute w-20 h-20 rounded-full border border-dashed border-indigo-300 animate-spin-reverse" />
+                <div className="absolute inset-0 rounded-full bg-indigo-100 opacity-30 animate-ping" />
+                <div className="w-16 h-16 bg-indigo-600 rounded-full flex items-center justify-center z-10 shadow-md">
+                  <PhoneIcon className="w-7 h-7 text-white" />
+                </div>
+              </div>
+            </div>
+
+            <SignalWaveSVG />
+
+            {/* Feature Cards */}
+            <FeatureCard
+              bg="bg-purple-50" border="border-purple-200"
+              iconBg="bg-violet-700" titleColor="text-violet-900" subColor="text-violet-600"
+              icon={<GridIcon />} title="SIP Server" sub={<><Dot color="#7c3aed" /> Online</>}
+              animDelay="delay-100"
+            >
+              <div className="flex gap-0.5 items-end h-6">
+                {waveBars.map((h, i) => (
+                  <div
+                    key={i}
+                    className="w-1.5 bg-purple-400 rounded-sm origin-bottom"
+                    style={{ height: h, animation: `waveBar ${0.6 + i * 0.08}s ease-in-out ${i * 0.05}s infinite alternate` }}
+                  />
+                ))}
+              </div>
+            </FeatureCard>
+
+            <FeatureCard
+              bg="bg-emerald-50" border="border-emerald-200"
+              iconBg="bg-emerald-600" titleColor="text-emerald-900" subColor="text-emerald-600"
+              icon={<GlobeIcon />} title="Global Reach" sub="150+ Countries"
+              animDelay="delay-150"
+            >
+              <div className="flex gap-1 flex-wrap">
+                {countries.map((c) => (
+                  <span key={c} className="text-[10px] bg-emerald-100 text-emerald-800 font-medium rounded px-1.5 py-0.5">{c}</span>
+                ))}
+              </div>
+            </FeatureCard>
+
+            <FeatureCard
+              bg="bg-orange-50" border="border-orange-200"
+              iconBg="bg-orange-600" titleColor="text-orange-900" subColor="text-orange-500"
+              icon={<BoltIcon />} title="Instant Connect" sub="<80ms latency"
+              animDelay="delay-200"
+            >
+              <div className="bg-orange-100 rounded-lg p-2">
+                <div className="flex justify-between mb-1">
+                  <span className="text-[10px] text-orange-800">Latency</span>
+                  <span className="text-[11px] font-bold text-orange-800">78ms</span>
+                </div>
+                <div className="h-1 bg-orange-200 rounded-full">
+                  <div className="w-1/5 h-full bg-orange-500 rounded-full" />
+                </div>
+              </div>
+            </FeatureCard>
+
+            <FeatureCard
+              bg="bg-blue-50" border="border-blue-200"
+              iconBg="bg-blue-600" titleColor="text-blue-900" subColor="text-blue-500"
+              icon={<LockIcon />} title="E2E Encryption" sub="256-bit AES"
+              animDelay="delay-300"
+            >
+              <div className="flex gap-0.5 mt-1 items-center">
+                {encBars.map((i) => (
+                  <div key={i} className={`w-1.5 h-4 rounded-sm ${i < 9 ? "bg-blue-200" : "bg-blue-600"}`} />
+                ))}
+                <span className="text-[10px] text-blue-700 font-medium ml-1">Secure</span>
+              </div>
+            </FeatureCard>
+
+            {/* Live Team Hub */}
+            <div className="col-span-2 bg-pink-50 border border-pink-200 rounded-2xl p-4 animate-float-b">
+              <div className="flex items-center justify-between mb-3">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 bg-pink-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <TeamIcon />
+                  </div>
+                  <div>
+                    <div className="text-[13px] font-semibold text-pink-900">Live Team Hub</div>
+                    <div className="text-[11px] text-pink-600">8 agents online now</div>
+                  </div>
+                </div>
+                <div className="flex">
+                  {agents.map(({ initials, color }, i) => (
+                    <div
+                      key={i}
+                      className="w-7 h-7 rounded-full border-2 border-white flex items-center justify-center text-[10px] text-white font-bold"
+                      style={{ background: color, marginLeft: i > 0 ? -6 : 0 }}
+                    >
+                      {initials}
+                    </div>
+                  ))}
+                  <div className="w-7 h-7 rounded-full border-2 border-white bg-pink-100 flex items-center justify-center text-[10px] text-pink-700 font-bold" style={{ marginLeft: -6 }}>+4</div>
+                </div>
+              </div>
+              <div className="grid grid-cols-4 gap-2">
+                {stats.map((s) => (
+                  <div key={s.label} className="rounded-lg p-2 text-center" style={{ background: s.bg }}>
+                    <div className="text-sm font-bold" style={{ color: s.color }}>{s.val}</div>
+                    <div className="text-[10px] opacity-70" style={{ color: s.color }}>{s.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* <BottomSignalSVG /> */}
+
+          {/* Legend */}
+          {/* <div className="flex justify-center gap-4 mt-2 flex-wrap">
+            {[
+              { label: "Voice", color: "#6366f1" },
+              { label: "Data", color: "#06b6d4" },
+              { label: "Status", color: "#10b981" },
+              { label: "Routing", color: "#f59e0b" },
+            ].map((l) => (
+              <span key={l.label} className="flex items-center gap-1.5 text-[11px]" style={{ color: l.color }}>
+                <span className="w-2 h-2 rounded-full inline-block" style={{ background: l.color }} />
+                {l.label}
+              </span>
+            ))}
+          </div> */}
+        </div>
+
+      </div>
+    </div>
+  );
 }
+
+/* ── Helper Components ── */
+
+function FeatureCard({ bg, border, iconBg, titleColor, subColor, icon, title, sub, animDelay, children }) {
+  return (
+    <div className={`${bg} ${border} border rounded-2xl p-3.5 ${animDelay} animate-pop-in`}>
+      <div className="flex items-center gap-2 mb-2.5">
+        <div className={`w-8 h-8 ${iconBg} rounded-lg flex items-center justify-center flex-shrink-0`}>
+          {icon}
+        </div>
+        <div>
+          <div className={`text-[13px] font-semibold ${titleColor}`}>{title}</div>
+          <div className={`text-[11px] ${subColor} flex items-center gap-1`}>{sub}</div>
+        </div>
+      </div>
+      {children}
+    </div>
+  );
+}
+
+function Dot({ color }) {
+  return <span className="w-1.5 h-1.5 rounded-full inline-block animate-pulse" style={{ background: color }} />;
+}
+
+function SignalWaveSVG() {
+  return (
+    <svg width="100%" height="60" viewBox="0 0 520 60" xmlns="http://www.w3.org/2000/svg" className="col-span-2 -mt-4 -mb-2">
+      <path d="M60 30 Q130 10 200 30 Q270 50 340 30 Q410 10 480 30" fill="none" stroke="#c7d2fe" strokeWidth="1.5" strokeDasharray="8 5" style={{ animation: "signalFlow 2s linear infinite" }} />
+      <path d="M60 30 Q130 50 200 30 Q270 10 340 30 Q410 50 480 30" fill="none" stroke="#a5f3fc" strokeWidth="1.5" strokeDasharray="6 4" style={{ animation: "signalFlow 1.2s linear infinite" }} />
+      <circle r="5" fill="#6366f1" opacity="0.8">
+        <animateMotion dur="2.5s" repeatCount="indefinite" path="M60 30 Q130 10 200 30 Q270 50 340 30 Q410 10 480 30" />
+      </circle>
+      <circle r="4" fill="#06b6d4" opacity="0.7">
+        <animateMotion dur="1.8s" repeatCount="indefinite" begin="0.9s" path="M60 30 Q130 50 200 30 Q270 10 340 30 Q410 50 480 30" />
+      </circle>
+    </svg>
+  );
+}
+
+function BottomSignalSVG() {
+  return (
+    <svg width="100%" height="50" viewBox="0 0 520 50" xmlns="http://www.w3.org/2000/svg" style={{ display: "block", marginTop: 8 }}>
+      <path d="M20 25 L500 25" fill="none" stroke="#e0e7ff" strokeWidth="1" />
+      <path d="M20 25 L500 25" fill="none" stroke="#6366f1" strokeWidth="1.5" strokeDasharray="10 8" style={{ animation: "signalFlow 2s linear infinite" }} />
+      <circle r="4" fill="#6366f1"><animateMotion dur="2s" repeatCount="indefinite" path="M20 25 L500 25" /></circle>
+      <circle r="3" fill="#10b981"><animateMotion dur="2s" repeatCount="indefinite" begin="0.6s" path="M500 25 L20 25" /></circle>
+      <circle r="3" fill="#f59e0b"><animateMotion dur="2s" repeatCount="indefinite" begin="1.2s" path="M20 25 L500 25" /></circle>
+    </svg>
+  );
+}
+
+const PhoneIcon = ({ className }) => (
+  <svg className={className} fill="currentColor" viewBox="0 0 24 24">
+    <path d="M3 5.5A1.5 1.5 0 014.5 4h2.764a.5.5 0 01.474.342l1.2 3.6a.5.5 0 01-.116.524l-1.078 1.078a9.021 9.021 0 004.812 4.812l1.078-1.078a.5.5 0 01.524-.116l3.6 1.2a.5.5 0 01.342.474V17.5A1.5 1.5 0 0116.5 19C9.596 19 4 13.404 4 6.5A1.5 1.5 0 015.5 5z" />
+  </svg>
+);
+const GridIcon = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18"/></svg>;
+const GlobeIcon = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>;
+const BoltIcon = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>;
+const LockIcon = () => <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>;
+const TeamIcon = () => <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="1.8" strokeLinecap="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>;

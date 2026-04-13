@@ -8,7 +8,7 @@ import {
   FaGithub,
 } from "react-icons/fa";
 import { Languages } from "lucide-react";
- import logo from "../assets/WhatsApp Image 2026-04-11 at 1.39.25 AM.jpeg"; 
+ import logo from "../assets/logo footer12.jpg"; 
 
 const Navbar = () => {
   const [open, setOpen] = useState(false);

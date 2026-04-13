@@ -1,206 +1,255 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import {
+  Phone,
+  Globe,
+  Shield,
+  Zap,
+  BarChart,
+  Server,
+  Wifi,
+  Mic,
+  Volume2,
+  Settings,
+  Users,
+  ArrowRight,
+} from "lucide-react";
 
-const tabs = [
-    {
-        letter: "V",
-        word: "VOICE",
-        color: "#0F8FA6",
-        accent: "#2EC4D6",
-        icon: (
-            <svg viewBox="0 0 64 64" fill="none" stroke="white" strokeWidth="2.5" className="w-10 h-10">
-                <path d="M32 8 L44 28 L20 28 Z" />
-                <rect x="28" y="28" width="8" height="14" rx="1" />
-                <path d="M20 42 Q32 52 44 42" />
-                <line x1="32" y1="52" x2="32" y2="58" />
-                <line x1="24" y1="58" x2="40" y2="58" />
-            </svg>
-        ),
-        desc: "Crystal-clear voice transmission over IP networks with zero latency.",
-    },
-    {
-        letter: "O",
-        word: "OVER",
-        color: "#0A5E6E",
-        accent: "#2EC4D6",
-        icon: (
-            <svg viewBox="0 0 64 64" fill="none" stroke="white" strokeWidth="2.5" className="w-10 h-10">
-                <path d="M10 32 Q20 18 32 26 Q44 34 54 20" />
-                <polyline points="46,14 54,20 48,28" />
-                <path d="M10 44 Q20 30 32 38 Q44 46 54 32" />
-                <polyline points="46,26 54,32 48,40" />
-            </svg>
-        ),
-        desc: "Seamless data routing across global internet infrastructure.",
-    },
-    {
-        letter: "I",
-        word: "INTERNET",
-        color: "#13A3B8",
-        accent: "#2EC4D6",
-        icon: (
-            <svg viewBox="0 0 64 64" fill="none" stroke="white" strokeWidth="2.5" className="w-10 h-10">
-                <circle cx="32" cy="28" r="14" />
-                <path d="M18 28 Q24 20 32 20 Q40 20 46 28" />
-                <path d="M18 28 Q24 36 32 36 Q40 36 46 28" />
-                <line x1="32" y1="14" x2="32" y2="42" />
-                <circle cx="32" cy="48" r="5" fill="white" stroke="white" />
-                <line x1="20" y1="56" x2="44" y2="56" />
-                <line x1="32" y1="53" x2="32" y2="56" />
-            </svg>
-        ),
-        desc: "Powered by the world's most resilient internet backbone.",
-    },
-    {
-        letter: "P",
-        word: "PROTOCOL",
-        color: "#084C5A",
-        accent: "#2EC4D6",
-        icon: (
-            <svg viewBox="0 0 64 64" fill="none" stroke="white" strokeWidth="2.5" className="w-10 h-10">
-                <rect x="14" y="10" width="36" height="44" rx="3" />
-                <line x1="20" y1="22" x2="44" y2="22" />
-                <line x1="20" y1="30" x2="44" y2="30" />
-                <line x1="20" y1="38" x2="36" y2="38" />
-                <circle cx="40" cy="46" r="6" fill="white" stroke="white" />
-                <polyline points="37,46 39,48 43,44" stroke="#1b5e20" strokeWidth="2" />
-            </svg>
-        ),
-        desc: "Industry-standard SIP & RTP protocols for universal compatibility.",
-    },
+const VoipEnterpriseHero = () => {
+  const [hoveredTab, setHoveredTab] = useState(null);
+const quadrants = [
+  {
+    id: 'top-left',
+    position: 'top-10 left-6',
+    color: 'bg-blue-600',
+    title: 'Global Network',
+    desc: 'Tier-1 connectivity with 99.9% uptime.',
+    icon: <Globe size={16} />
+  },
+  {
+    id: 'top-right',
+    position: 'top-10 right-6',
+    color: 'bg-purple-600',
+    title: 'Smart Analytics',
+    desc: 'Real-time CDR and QoS monitoring.',
+    icon: <BarChart size={16} />
+  },
+  {
+    id: 'bottom-left',
+    position: 'bottom-20 left-6',
+    color: 'bg-emerald-600',
+    title: 'Security Shield',
+    desc: 'End-to-end SRTP/TLS encryption.',
+    icon: <Shield size={16} />
+  },
+  {
+    id: 'bottom-right',
+    position: 'bottom-20 right-6',
+    color: 'bg-orange-600',
+    title: 'Auto Scaling',
+    desc: 'Handle 10k+ concurrent calls easily.',
+    icon: <Zap size={16} />
+  }
 ];
 
-export default function VoipLanding() {
-    const [activeTab, setActiveTab] = useState(0);
+  const circlingIcons = [
+    { Icon: Server, bg: "bg-indigo-500" },
+    { Icon: Wifi, bg: "bg-pink-500" },
+    { Icon: Mic, bg: "bg-cyan-500" },
+    { Icon: Volume2, bg: "bg-amber-500" },
+    { Icon: Settings, bg: "bg-slate-700" },
+    { Icon: Users, bg: "bg-rose-500" },
+  ];
 
-    return (
-        <div className="h-[85vh] w-full font-sans flex flex-col">
-            {/* Hero Section */}
-            <main className="flex-1 flex flex-col lg:flex-row items-center gap-12 px-20 py-16 mx-auto w-full">
-
-                {/* LEFT CONTENT */}
-                <div className="flex-1 flex flex-col gap-7 lg:pr-8">
-
-<h1 className="font-['Syne',sans-serif] text-4xl md:text-4xl leading-[1.08] text-gray-700">
-    Smart Communication 
-
-  <span className="text-blue-500"> Solutions</span>
-</h1>
-
-<p className="font-sans text-gray-600 text-sm sm:text-base md:text-[17px]
-leading-6 sm:leading-7 tracking-normal text-justify max-w-full lg:max-w-[620px]">
-  Empower your business with secure, scalable, and intelligent
-  communication services. Our platform combines cloud technology,
-  automation, and real-time performance optimization to deliver
-  faster connections, clearer conversations, and better customer experiences.
-</p>
-
-                    {/* CTAs */}
-                    <div className="anim-fade-up-4 flex items-center gap-3 flex-wrap pt-1">
-
-                        <div className="anim-fade-up-4 flex items-center gap-3 flex-wrap pt-1">
-
-                            <button className="inline-flex items-center gap-2 px-6 py-3 squared-xl text-white text-sm font-semibold 
-  bg-blue-500 hover:bg-blue-600 
-  transition-all duration-200 border-0 cursor-pointer">
-
-                                Get Started Free
-                            </button>
-                        </div>
-                        <button className="inline-flex items-center gap-2 px-5 py-3 squared-xl text-sm font-medium 
-  text-gray-700 border border-gray-300 bg-gray-100 
-  hover:bg-gray-200 hover:border-gray-400 
-  transition-all duration-200 cursor-pointer">
-
-                            Watch Demo
-                        </button>
-
-                    </div>
-                </div>
-
-                {/* RIGHT — VOIP TABS */}
-                <div className="flex-1 flex flex-col items-center gap-8 w-full max-w-[550px]">
-                    {/* VOIP Letter Cards */}
-                    <div className="flex gap-8 justify-center">
-                        {tabs.map((tab, i) => (
-                            <button
-                                key={i}
-                                onClick={() => setActiveTab(i)}
-                                className="flex flex-col items-center gap-0 group focus:outline-none"
-                            >
-                                {/* Letter tile */}
-                                <div
-                                    className="w-20 h-20 rounded-2xl flex items-center justify-center
-                    font-black text-4xl text-gray-900 transition-all duration-300
-                    border-2 rotate-45"
-                                    style={{
-                                        backgroundColor: activeTab === i ? "white" : "#f8f9fa",
-                                        borderColor: tab.color,
-                                        transform: activeTab === i
-                                            ? "translateY(-15px) rotate(45deg)"
-                                            : "translateY(-20px) rotate(45deg)",
-                                    }}
-                                >
-                                    <span className="-rotate-45 block">
-                                        {tab.letter}
-                                    </span>
-                                </div>
-
-                                {/* Color bar */}
-                                <div
-                                    className="w-28 h-36 rounded-b-xl transition-all duration-300 flex flex-col items-center justify-start pt-4 pb-5 gap-4"
-                                    style={{
-                                        backgroundColor: tab.color,
-                                        minHeight: "120px",
-                                    }}
-                                >
-                                    <span className="text-white text-xs font-bold tracking-widest">
-                                        {tab.word}
-                                    </span>
-                                    <div className="opacity-100 transition-opacity duration-200 scale-125">
-                                        {tab.icon}
-                                    </div>
-                                </div>
-                            </button>
-                        ))}
-                    </div>
-
-                    {/* Active Tab Detail Card */}
-                    <div
-                        className="w-full max-w-3xl rounded-2xl p-8 text-white transition-all duration-300"
-                        style={{ backgroundColor: tabs[activeTab].color }}
-                    >
-                        <div className="flex items-center gap-4 mb-4">
-                            {tabs[activeTab].icon}
-                            <div>
-                                <p className="text-white/60 text-xs font-bold tracking-widest uppercase">
-                                    {tabs[activeTab].letter} — {tabs[activeTab].word}
-                                </p>
-                                <h3 className="text-white font-black text-2xl">
-                                    {tabs[activeTab].word}
-                                </h3>
-                            </div>
-                        </div>
-
-                        <p className="text-white/80 text-base leading-relaxed">
-                            {tabs[activeTab].desc}
-                        </p>
-
-                        <div className="mt-5 flex gap-2">
-                            {tabs.map((_, i) => (
-                                <button
-                                    key={i}
-                                    onClick={() => setActiveTab(i)}
-                                    className="h-2 rounded-full transition-all duration-300"
-                                    style={{
-                                        width: activeTab === i ? "32px" : "10px",
-                                        backgroundColor: activeTab === i ? "white" : "rgba(255,255,255,0.3)",
-                                    }}
-                                />
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </main>
+  return (
+    <div className="min-h-screen bg-white text-slate-900 font-sans overflow-hidden flex items-center justify-center p-6">
+      <div className="max-w-7xl mx-auto w-full grid lg:grid-cols-2 gap-12 items-center">
+        {/* LEFT SIDE: HEADER CONTENT */}
+        <div className="z-10 space-y-8">
+          <h1 className="text-4xl text-gray-600  tracking-tighter leading-none">
+            VOIP  {" "}
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-indigo-600">
+              INFRASTRUCTURE
+            </span>
+          </h1>
+          <p className="text-xl text-slate-500 max-w-md leading-relaxed">
+            A high-performance softswitch design built for massive scale,
+            featuring real-time analytics and enterprise security.
+          </p>
+          <div className="flex gap-4">
+            <button className="px-8 py-4 bg-blue-600 text-white rounded-2xl font-bold hover:bg-blue-700 transition-all flex items-center gap-2 group">
+              Get Started{" "}
+              <ArrowRight
+                size={18}
+                className="group-hover:translate-x-1 transition-transform"
+              />
+            </button>
+          </div>
         </div>
-    );
-}
+
+        {/* RIGHT SIDE: THE EXPANDED ORBIT SYSTEM */}
+        <div className="relative flex items-center justify-center h-[750px] w-full">
+          {/* THE INCREASED RADIUS ORBIT */}
+          <div className="relative w-[600px] h-[600px] flex items-center justify-center">
+            {/* Background Decorative Circles */}
+            <div className="absolute inset-0 rounded-full border border-slate-100 border-dashed animate-spin-slow" />
+            <div className="absolute w-[450px] h-[450px] rounded-full border border-slate-50" />
+
+            {/* QUADRANT TABS (Top Left, Top Right, Bottom Left, Bottom Right) */}
+            {quadrants.map((tab) => (
+              <div
+                key={tab.id}
+                onMouseEnter={() => setHoveredTab(tab.id)}
+                onMouseLeave={() => setHoveredTab(null)}
+                className={`absolute ${tab.position} z-30 
+      w-40 p-3 rounded-2xl 
+      transition-all duration-300 transform cursor-pointer
+      ${
+        hoveredTab === tab.id
+          ? `${tab.color} scale-105 shadow-xl translate-y-[-6px]`
+          : "bg-white/80 backdrop-blur-md shadow-lg border border-slate-100"
+      }`}
+
+              >
+                {/* ICON */}
+                <div
+                  className={`w-8 h-8 rounded-lg flex items-center justify-center mb-2 transition-colors
+      ${
+        hoveredTab === tab.id
+          ? "bg-white/20 text-white"
+          : `${tab.color} text-white`
+      }`}
+                >
+                  {tab.icon}
+                </div>
+
+                {/* TITLE */}
+                <h3
+                  className={`font-semibold text-xs mb-1
+      ${hoveredTab === tab.id ? "text-white" : "text-slate-900"}`}
+                >
+                  {tab.title}
+                </h3>
+
+                {/* DESCRIPTION */}
+                <p
+                  className={`text-[10px] leading-tight
+      ${hoveredTab === tab.id ? "text-white/80" : "text-slate-500"}`}
+                >
+                  {tab.desc}
+                </p>
+              </div>
+            ))}
+
+            {/* CIRCLING ICONS (Increased Radius) */}
+            <div className="absolute inset-0 z-20 pointer-events-none">
+              {circlingIcons.map(({ Icon, bg }, index) => (
+                <div
+                  key={index}
+                  className="absolute top-1/2 left-1/2 animate-orbit"
+                  style={{
+                    "--orbit-radius": "250px",
+                    animationDelay: `${index * -4}s`,
+                    animationDuration: "24s",
+                  }}
+                >
+                  <div
+                    className={`w-12 h-12 ${bg} text-white rounded-xl flex items-center justify-center shadow-lg transform -rotate-orbit animate-counter-spin`}
+                    style={{
+                      animationDelay: `${index * -4}s`,
+                      animationDuration: "24s",
+                    }}
+                  >
+                    <Icon size={20} strokeWidth={2.5} />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* CENTRAL COMPACT PHONE PANEL */}
+            <div className="relative z-40 bg-white p-3 rounded-[3rem] shadow-2xl border-slate-50 w-[190px] h-[380px]">
+              <div className="h-full w-full bg-slate-950 rounded-[2.2rem] overflow-hidden flex flex-col p-5">
+                {/* Internal UI */}
+                <div className="flex justify-between items-center opacity-50 mb-8">
+                  <div className="flex gap-1">
+                    <div className="w-1 h-1 rounded-full bg-white" />
+                    <div className="w-1 h-1 rounded-full bg-white" />
+                  </div>
+                  <span className="text-[7px] text-white font-mono tracking-widest">
+                    ENCRYPTED
+                  </span>
+                </div>
+
+                <div className="flex-grow flex flex-col items-center">
+                  <div className="relative mb-6">
+                    <div className="absolute inset-0 bg-blue-500 rounded-full blur-xl opacity-30 animate-pulse" />
+                    <div className="relative w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-full flex items-center justify-center">
+                      <Phone className="text-white fill-white" size={24} />
+                    </div>
+                  </div>
+
+                  <div className="text-center mb-6">
+                    <p className="text-blue-400 text-[8px] font-black tracking-widest uppercase mb-1">
+                      Inbound Stream
+                    </p>
+                    <h4 className="text-white text-lg font-light tracking-tight">
+                      +1 800 2344
+                    </h4>
+                  </div>
+
+                  {/* Dialer Grid */}
+                  <div className="grid grid-cols-3 gap-2 w-full">
+                    {[1, 2, 3, 4, 5, 6, 7, 8, 9].map((n) => (
+                      <div
+                        key={n}
+                        className="h-10 rounded-xl bg-slate-900 border border-slate-800 flex items-center justify-center text-xs text-slate-500 font-bold hover:text-white transition-colors"
+                      >
+                        {n}
+                      </div>
+                    ))}
+                  </div>
+
+                  <div className="mt-auto w-full h-12 rounded-2xl bg-red-500/10 border border-red-500/20 flex items-center justify-center">
+                    <div className="w-8 h-8 bg-red-500 rounded-full flex items-center justify-center rotate-[135deg]">
+                      <Phone size={14} className="text-white fill-white" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <style jsx global>{`
+        @keyframes orbit {
+          from {
+            transform: rotate(0deg) translateX(var(--orbit-radius)) rotate(0deg);
+          }
+          to {
+            transform: rotate(360deg) translateX(var(--orbit-radius))
+              rotate(-360deg);
+          }
+        }
+        @keyframes counter-spin {
+          from {
+            transform: rotate(0deg);
+          }
+          to {
+            transform: rotate(-360deg);
+          }
+        }
+        .animate-orbit {
+          animation: orbit linear infinite;
+        }
+        .animate-counter-spin {
+          animation: counter-spin linear infinite;
+        }
+        .animate-spin-slow {
+          animation: spin 60s linear infinite;
+        }
+      `}</style>
+    </div>
+  );
+};
+
+export default VoipEnterpriseHero;

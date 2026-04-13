@@ -9,7 +9,7 @@ import {
   FaMapMarkerAlt,
 } from "react-icons/fa";
 // Import your logo as before
-import logo from "../assets/logo_footer-removebg-preview.png";
+import logo from "../assets/logo footer12.jpg";
 
 const footerLinks = {
   Services: [
@@ -78,17 +78,18 @@ export default function TelecomFooter() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
           {/* Brand & Newsletter Section */}
           <div className="lg:col-span-4">
-<div className="bg-white p-1 rounded-xl inline-block shadow-md">
-<img
-  src={logo}
-  alt="Voxentrax"
-  className="w-[220px] md:w-[260px] h-[80px] object-contain"
-/>
-</div>
-            <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-xs">
-              Empowering global enterprises with next-generation VoIP
-              infrastructure and seamless communication APIs.
-            </p>
+ <div className="inline-block bg-white p-3 rounded-2xl shadow-xl">
+    <img
+      src={logo}
+      alt="Voxentrax"
+      className="w-[380px] md:w-[520px] h-[90px] object-contain"
+    />
+  </div>
+
+  <p className="text-gray-400 text-sm leading-relaxed mb-8 max-w-md mt-4">
+    Empowering global enterprises with next-generation VoIP
+    infrastructure and seamless communication APIs.
+  </p>
 
             <h4 className="text-sm font-bold uppercase tracking-widest mb-4">
               Stay Updated

@@ -44,33 +44,37 @@ const styles = `
   .faq-container { max-width: 1200px; margin: 0 auto; }
 
   /* ── UPDATED HEADER: CENTERED WITH BORDER ── */
+/* ── UPDATED HEADER: PROFESSIONAL BOXED STYLE ── */
   .faq-header { 
-    margin-bottom: 6px; 
-    padding-bottom: 32px;
+    margin-bottom: 14px; 
+    padding: 10px 20px; /* Increased padding for a spacious, professional feel */
     text-align: center; 
-    border-bottom: 1px solid var(--border-light);
+    border: 1px solid var(--border-light); /* Full border box */
+    border-radius: 8px; /* Slight rounding for a modern touch */
    
+    width: 100%; /* Ensures it spans the full width of the container */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03); /* Soft shadow for depth */
   }
   
   .faq-eyebrow {
     color: var(--color-1);
     font-weight: 700;
-    font-size: 14px;
+    font-size: 12px; /* Slightly smaller for better contrast with title */
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 12px;
+    letter-spacing: 2.5px;
+    margin-bottom: 16px;
     display: block;
+    opacity: 0.8;
   }
 
   .faq-title {
-    font-size: clamp(28px, 4vw, 36px);
-    color: var(--text-main);
-    font-weight: 400; 
-    line-height: 1.2;
-    letter-spacing: -0.5px;
-    max-width: 700px;
+    font-size: clamp(24px, 4vw, 32px);
+    color: #9ED3DC; /* Kept your specific blue */
+    font-weight: 600; /* Increased weight slightly for "Professional" look */
+    line-height: 1.3;
+    letter-spacing: -0.2px;
+    max-width: 800px;
     margin: 0 auto;
-     color:#9ED3DC;
   }
 /* ── UPDATED ICON CONTAINER ── */
   .faq-nav-icon-wrapper {
