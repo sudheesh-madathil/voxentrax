@@ -1,8 +1,8 @@
 import React from "react";
 
-import aboutImg from "../../../assets/Images/5121056.jpg";
-import aboutImg2 from "../../../assets/Images/5101602.jpg";
-import aboutImg3 from "../../../assets/Images/5132728.jpg";
+import aboutImg from "../../../assets/Images/home1.jpg";
+import aboutImg2 from "../../../assets/Images/hom2.jpg";
+import aboutImg3 from "../../../assets/Images/hom3.jpg";
 
 export default function AboutUs() {
   return (
@@ -10,14 +10,13 @@ export default function AboutUs() {
 
       {/* MAIN HEADING */}
       <div className="max-w-6xl mx-auto text-center mb-16">
-<h2 className="text-4xl md:text-3xl font-default text-gray-900 mb-4">
-  Smart Communication Solutions by
-  <span className="text-blue-500"> Dial Infinity</span>
+<h2 className="text-4xl md:text-3xl font-default text-gray-400 mb-4">
+Intelligent Communication Solutions by 
+  <span className="text-orange-500"> Voxentrax</span>
 </h2>
 
 <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-  DialInfinity provides smart VoIP and telecom solutions for seamless communication,
-  secure connectivity, and scalable collaboration in today’s digital-first world.
+ Voxentrax offers advanced VoIP and telecom solutions designed for smooth communication, reliable connectivity, and flexible collaboration in today’s fast-paced digital world.
 </p>
       </div>
 
@@ -32,32 +31,20 @@ export default function AboutUs() {
 
 <div className="max-w-[41rem]">
   <h2 className="text-2xl font-default mb-4">
-  <span className="text-gray-600">What</span>{" "}
-  <span className="text-blue-500">We Provide</span>
+  <span className="text-gray-400">What</span>{" "}
+  <span className="text-orange-500">We Provide</span>
 </h2>
 
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  Dial Infinity delivers powerful VoIP communication systems that enable
-  businesses to manage voice connectivity through secure and cloud-based
-  infrastructure. Our solutions are built to replace traditional telecom
-  limitations with flexible and cost-effective communication environments
-  that simplify everyday business operations.
+Voxentrax delivers advanced VoIP communication solutions that empower businesses with seamless voice connectivity through secure, cloud-driven infrastructure. Our platform is designed to overcome traditional telecom constraints, offering flexible and cost-efficient communication environments that enhance everyday business efficiency.
 </p>
 
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  From enterprise calling to global connectivity, our platform ensures
-  high-quality voice transmission, intelligent routing, and seamless
-  integration with modern business tools. Organizations can centralize
-  communication workflows, monitor performance in real time, and maintain
-  reliable connections regardless of geographical location or workforce
-  structure.
+From enterprise-grade calling to global connectivity, our solutions ensure crystal-clear voice quality, intelligent call routing, and effortless integration with modern business applications. Organizations can streamline communication workflows, gain real-time performance insights, and maintain dependable connections across diverse locations and distributed teams.
 </p>
 
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  Our services are designed to support growing teams, remote environments,
-  and customer-facing operations by delivering scalable communication
-  capabilities that evolve alongside business demands while maintaining
-  security, stability, and ease of use.
+Built to support expanding businesses, remote operations, and customer-centric environments, our services provide scalable communication capabilities that adapt to evolving business needs—while upholding the highest standards of security, reliability, and user experience.
 </p>
         </div>
       </div>
@@ -67,31 +54,20 @@ export default function AboutUs() {
 
 <div className="max-w-[41rem]">
   <h2 className="text-2xl font-default mb-4">
-  <span className="text-gray-600">Why Choose</span>{" "}
-  <span className="text-blue-500">Dial Infinity</span>
+  <span className="text-gray-400">Why Choose</span>{" "}
+  <span className="text-orange-500">Voxentrax</span>
 </h2>
 
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  Businesses choose Dial Infinity for its dependable infrastructure,
-  advanced security standards, and scalable communication architecture.
-  Our VoIP ecosystem is engineered to provide consistent performance,
-  enabling organizations to operate without interruptions or communication
-  delays.
+Businesses choose Voxentrax for its robust infrastructure, enterprise-grade security, and highly scalable communication architecture. Our VoIP ecosystem is engineered to deliver consistent, high-performance connectivity—empowering organizations to operate seamlessly without disruptions or latency concerns.
 </p>
 
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  We prioritize clarity, reliability, and operational transparency by
-  offering intelligent analytics, call monitoring capabilities, and
-  flexible configuration options. This allows businesses to optimize
-  communication workflows while maintaining full control over their
-  telecom environment.
+  We emphasize clarity, reliability, and operational visibility through advanced analytics, real-time call monitoring, and flexible configuration capabilities. This enables businesses to optimize communication workflows while retaining complete control over their telecom environment.
 </p>
 
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  Through continuous platform improvements and customer-focused
-  innovation, Dial Infinity helps companies reduce communication costs,
-  improve collaboration efficiency, and strengthen relationships with
-  customers through dependable voice connectivity.
+  Driven by continuous innovation and a customer-centric approach, Voxentrax helps organizations reduce communication costs, enhance team collaboration, and build stronger customer relationships through reliable and high-quality voice connectivity.
 </p>
         </div>
 
@@ -108,33 +84,24 @@ export default function AboutUs() {
         <img
           src={aboutImg3}
           alt="DialInfinity Vision"
-          className="w-full h-[450px] object-cover rounded-xl"
+          className="w-full h-[490px] object-cover rounded-xl"
         />
 
 <div className="max-w-[41rem]">
   <h2 className="text-2xl font-default mb-4">
-  <span className="text-gray-600">Our</span>{" "}
-  <span className="text-blue-500">Technology Approach</span>
+  <span className="text-gray-400">Our</span>{" "}
+  <span className="text-orange-500">Technology Approach</span>
 </h2>
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  At Dial Infinity, technology drives every communication experience we
-  create. Our cloud-powered VoIP infrastructure is engineered for speed,
-  stability, and global accessibility, allowing businesses to communicate
-  seamlessly without the constraints of traditional systems.
+At Voxentrax, technology is the foundation of every communication experience we deliver. Our cloud-powered VoIP infrastructure is meticulously engineered for speed, resilience, and global accessibility—enabling businesses to communicate effortlessly without the limitations of legacy systems.
 </p>
 
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  We integrate modern networking technologies, intelligent call routing,
-  and scalable architecture to ensure optimized performance across
-  different regions and network conditions. This approach guarantees
-  reliable voice quality and uninterrupted service delivery.
+We leverage advanced networking technologies, intelligent call routing, and scalable architecture to ensure optimized performance across diverse regions and network environments. This ensures consistently high voice quality and uninterrupted service delivery at every touchpoint.
 </p>
 
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  By continuously evolving our platform through innovation and research,
-  Dial Infinity builds future-ready communication systems that support
-  digital transformation, remote collaboration, and long-term business
-  growth in a rapidly changing technological landscape.
+Through continuous innovation and strategic development, Voxentrax builds future-ready communication platforms that empower digital transformation, enhance remote collaboration, and support sustainable business growth in an ever-evolving technological landscape.
 </p>
         </div>
       </div>

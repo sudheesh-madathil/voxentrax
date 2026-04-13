@@ -1,8 +1,8 @@
 import React from "react";
 
-import aboutImg from "../../../assets/Images/home4.jpg";
-import aboutImg2 from "../../../assets/Images/home5.jpg";
-import aboutImg3 from "../../../assets/Images/home6.jpg";
+import aboutImg from "../../../assets/Images/hom4.jpg";
+import aboutImg2 from "../../../assets/Images/hom5.jpg";
+import aboutImg3 from "../../../assets/Images/hom6.jpg";
 
 export default function AboutUs() {
   return (
@@ -10,14 +10,13 @@ export default function AboutUs() {
 
       {/* MAIN HEADING */}
       <div className="max-w-6xl mx-auto text-center mb-16">
-        <h1 className="text-4xl md:text-3xl font-default text-gray-900 mb-4">
+        <h1 className="text-4xl md:text-3xl font-default text-gray-400 mb-4">
           Our Telecom & VoIP
-          <span className="text-blue-500"> Services</span>
+          <span className="text-orange-500"> Services</span>
         </h1>
 
         <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
-          We provide high-quality VoIP solutions designed to deliver reliable connectivity,
-          superior call quality, and scalable communication systems for businesses worldwide.
+We deliver enterprise-grade VoIP solutions engineered to provide seamless connectivity, exceptional call clarity, and scalable communication systems tailored for businesses operating in a global environment.
         </p>
       </div>
 
@@ -32,33 +31,19 @@ export default function AboutUs() {
 
 <div className="max-w-[41rem]">
           <h2 className="text-2xl font-default mb-4">
-            <span className="text-gray-600">VoIP</span>{" "}
-            <span className="text-blue-500">CC & CLI Routes</span>
+            <span className="text-gray-400">VoIP</span>{" "}
+            <span className="text-orange-500">CC & CLI Routes</span>
           </h2>
 
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  Our VoIP routing solutions are continuously monitored and optimized to
-  maintain performance consistency even during peak traffic conditions.
-  By utilizing intelligent load balancing and advanced carrier management,
-  we ensure stable communication channels that support mission-critical
-  business operations without compromise.
+Our VoIP routing solutions are meticulously monitored and continuously optimized to ensure consistent performance—even during high traffic volumes. Through intelligent load balancing and advanced carrier management, Voxentrax delivers stable communication channels that support mission-critical operations without compromise.
 </p>
 
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  Dial Infinity focuses on delivering secure and scalable routing
-  environments that adapt to changing business requirements. Whether
-  supporting call centers, enterprise communication, or international
-  outreach campaigns, our infrastructure is designed to provide reliable
-  voice delivery, improved call success rates, and enhanced customer
-  interaction experiences.
+We focus on providing secure, scalable routing environments that seamlessly adapt to evolving business needs. Whether enabling call centers, enterprise communication, or global outreach initiatives, our infrastructure ensures reliable voice delivery, higher call completion rates, and enhanced customer engagement.
 </p>
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  Our routing architecture is built with redundancy and real-time quality
-  monitoring to ensure uninterrupted communication across global networks.
-  By continuously analyzing call performance and optimizing routing paths,
-  Dial Infinity delivers consistent voice clarity, reduced latency, and
-  dependable connectivity that businesses can rely on for both daily
-  operations and large-scale communication demands.
+Built on a resilient architecture with redundancy and real-time quality monitoring, our routing systems guarantee uninterrupted communication across global networks. By continuously analyzing performance metrics and optimizing routing paths, Voxentrax ensures superior voice clarity, minimal latency, and dependable connectivity for both everyday operations and large-scale communication requirements.
 </p>
         </div>
       </div>
@@ -68,32 +53,19 @@ export default function AboutUs() {
 
 <div className="max-w-[41rem]">
           <h2 className="text-2xl font-default mb-4">
-            <span className="text-gray-600">Advanced</span>{" "}
-            <span className="text-blue-500">Dialer Solutions</span>
+            <span className="text-gray-400">Advanced</span>{" "}
+            <span className="text-orange-500">Dialer Solutions</span>
           </h2>
 
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  Our dialer platforms are engineered with intelligent automation
-  capabilities that help businesses optimize workforce productivity while
-  maintaining consistent communication quality. Features such as call
-  scheduling, automated workflows, and smart queue management allow teams
-  to execute campaigns efficiently and achieve better operational results.
+ Our dialer platforms are intelligently engineered with advanced automation capabilities, enabling businesses to enhance workforce productivity while maintaining consistent communication excellence. Features such as call scheduling, automated workflows, and intelligent queue management empower teams to execute campaigns with precision and achieve superior operational outcomes.
 </p>
 
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  Security and reliability remain at the core of our dialer technology.
-  With secure data handling, role-based access controls, and performance
-  monitoring tools, organizations can manage communication activities
-  confidently while maintaining compliance and operational transparency
-  across departments.
+Security and reliability remain at the core of our dialer technology. With robust data protection, role-based access controls, and comprehensive performance monitoring, organizations can manage communication processes with confidence while ensuring compliance and full operational visibility across all levels.
 </p>
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  Designed for scalability and flexibility, our dialer solutions adapt to
-  businesses of all sizes, from growing teams to large enterprise call
-  centers. With seamless integration capabilities and real-time performance
-  insights, organizations can optimize calling strategies, improve agent
-  efficiency, and deliver more personalized customer interactions while
-  maintaining operational control and communication excellence.
+  Built for scalability and flexibility, our dialer solutions seamlessly adapt to organizations of every size—from growing teams to large-scale enterprise call centers. With effortless integrations and real-time analytics, businesses can refine calling strategies, boost agent performance, and deliver highly personalized customer experiences while maintaining complete control and communication excellence.
 </p>
         </div>
 
@@ -115,32 +87,19 @@ export default function AboutUs() {
 
 <div className="max-w-[41rem]">
           <h2 className="text-2xl font-default mb-4">
-            <span className="text-gray-600">Global</span>{" "}
-            <span className="text-blue-500">DID Numbers</span>
+            <span className="text-gray-400">Global</span>{" "}
+            <span className="text-orange-500">DID Numbers</span>
           </h2>
 
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  Dial Infinity’s global DID network allows businesses to expand their
-  reach without investing in physical infrastructure. Companies can
-  instantly establish regional communication channels, enabling local
-  customer engagement while managing all calls through a centralized
-  cloud-based system.
+Voxentrax’s global DID network empowers businesses to expand their presence without the need for physical infrastructure. Organizations can instantly establish localized communication channels, enabling meaningful customer engagement in multiple regions while managing all interactions through a centralized, cloud-based platform.
 </p>
 
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  Our platform supports flexible call forwarding, IVR integration, and
-  advanced routing options that ensure every incoming call reaches the
-  right destination efficiently. This improves response times, strengthens
-  brand presence, and creates a professional communication experience for
-  customers worldwide.
+Our solution supports flexible call forwarding, seamless IVR integration, and advanced routing capabilities—ensuring every inbound call is directed efficiently to the right destination. This enhances response times, strengthens brand credibility, and delivers a professional communication experience for customers worldwide.
 </p>
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  With instant activation and easy scalability, Dial Infinity’s DID services
-  allow businesses to quickly adapt to changing communication needs across
-  multiple regions. Our reliable infrastructure ensures high availability,
-  clear voice quality, and seamless connectivity, helping organizations
-  deliver consistent customer experiences while expanding their global
-  presence with confidence.
+With instant provisioning and effortless scalability, Voxentrax’s DID services enable businesses to adapt quickly to evolving communication demands across global markets. Backed by a highly reliable infrastructure, we ensure maximum uptime, superior voice clarity, and uninterrupted connectivity—helping organizations deliver consistent customer experiences while confidently expanding their international footprint.
 </p>
         </div>
       </div>

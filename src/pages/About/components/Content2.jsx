@@ -1,7 +1,7 @@
 import React from "react";
 
-import aboutImg from "../../../assets/Images/about4.jpg";
-import aboutImg2 from "../../../assets/Images/about5.jpg";
+import aboutImg from "../../../assets/Images/abt4.jpg";
+import aboutImg2 from "../../../assets/Images/abt6.jpg";
 
 export default function AboutUsContent2() {
   return (
@@ -9,9 +9,9 @@ export default function AboutUsContent2() {
 
 {/* MAIN HEADING */}
 <div className="max-w-6xl mx-auto text-center mb-16">
-<h1 className="text-4xl md:text-3xl font-default text-gray-900 mb-4">
-  Powering Smart Business
-  <span className="text-blue-500"> VoIP Communication</span>
+<h1 className="text-4xl md:text-3xl font-default text-gray-400 mb-4">
+Enabling Intelligent 
+  <span className="text-orange-500"> Business Communication</span>
 </h1>
 
 <p className="text-gray-600 text-lg max-w-3xl mx-auto leading-relaxed">
@@ -23,35 +23,23 @@ export default function AboutUsContent2() {
       {/* SECTION 1 */}
       <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
 
-        <img
-          src={aboutImg}
-          alt="About"
-          className="w-full h-[500px] object-cover rounded-xl"
-        />
-
+   <img
+  src={aboutImg}
+  alt="About"
+  className="w-[500px]  object-cover rounded-xl mt-[20px]"
+/>
 <div className="max-w-xl">
   <h2 className="text-2xl font-default mb-4">
-    <span className="text-gray-600">About</span>{" "}
-    <span className="text-blue-500">Our Company</span>
+    <span className="text-gray-400">About</span>{" "}
+    <span className="text-orange-500">Our Company</span>
   </h2>
 
   <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-    We are a forward-thinking VoIP and telecom solutions provider dedicated
-    to helping businesses communicate smarter and more efficiently. By
-    leveraging cloud-based technologies and modern communication
-    infrastructure, we deliver reliable voice, messaging, and connectivity
-    solutions tailored to meet evolving business needs. Our expertise allows
-    organizations to replace complex traditional systems with flexible and
-    scalable digital communication platforms.
+We are a future-focused VoIP and telecom solutions provider committed to transforming the way businesses communicate. Through advanced cloud-based technologies and next-generation communication infrastructure, we deliver dependable voice, messaging, and connectivity solutions designed to adapt to the evolving demands of modern enterprises. Our platforms replace complex legacy systems with streamlined, scalable, and flexible digital communication ecosystems built for growth.
   </p>
 
   <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-    Our team combines technical excellence with industry insight to build
-    solutions that enhance collaboration, improve customer interactions,
-    and ensure uninterrupted global connectivity. We focus on performance,
-    security, and simplicity, enabling businesses to operate confidently
-    while staying connected anytime and anywhere through advanced VoIP
-    innovation.
+ Our team blends deep technical expertise with strong industry understanding to engineer solutions that elevate collaboration, strengthen customer engagement, and ensure seamless global connectivity. With a core focus on performance, security, and simplicity, we empower businesses to operate with confidence—staying connected anytime, anywhere through intelligent and innovative VoIP technology.
   </p>
 </div>
       </div>
@@ -61,33 +49,23 @@ export default function AboutUsContent2() {
 
 <div className="max-w-xl">
 <h2 className="text-2xl font-default mb-4">
-  <span className="text-gray-600">Driving</span>{" "}
-  <span className="text-blue-500">Innovation</span>
+  <span className="text-gray-400">Driving</span>{" "}
+  <span className="text-orange-500">Innovation</span>
 </h2>
 
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  Innovation is at the core of everything we do. We continuously develop
-  advanced VoIP and cloud communication solutions that help businesses
-  stay connected in a fast-changing digital world. By integrating modern
-  technologies with reliable telecom infrastructure, we create systems
-  that enhance communication efficiency while maintaining exceptional
-  voice quality, security, and performance.
+ Innovation drives every aspect of our work. We consistently design and evolve advanced VoIP and cloud communication solutions that enable businesses to stay seamlessly connected in an ever-changing digital landscape. By combining cutting-edge technologies with robust telecom infrastructure, we build systems that improve communication efficiency while ensuring outstanding voice clarity, strong security, and reliable performance.
 </p>
 
 <p className="text-[#4d5156] text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] tracking-[0.01em] font-normal text-justify">
-  Our approach focuses on simplifying complex communication processes
-  through intelligent automation and scalable platforms. We aim to
-  empower organizations with flexible tools that improve collaboration,
-  support remote work environments, and enable seamless global
-  connectivity. By embracing innovation, we help businesses adapt,
-  grow, and succeed with future-ready VoIP solutions.
+ Our philosophy centers on simplifying complex communication ecosystems through intelligent automation and highly scalable platforms. We empower organizations with flexible, future-ready tools that enhance collaboration, support remote and hybrid work models, and deliver uninterrupted global connectivity. Through continuous innovation, we help businesses adapt with confidence, scale effortlessly, and thrive in a rapidly evolving communications world.
 </p>
 </div>
 
         <img
           src={aboutImg2}
           alt="Mission"
-          className="w-full h-[680px] object-cover rounded-xl mt-[40px]"
+          className="w-full  object-cover rounded-xl mt-[40px]"
         />
       </div>
     </section>
