@@ -1,7 +1,7 @@
 import React from "react";
 
 import aboutImg from "../../../assets/Images/srv4.jpg";
-import aboutImg2 from "../../../assets/Images/srv5.jpg";
+import aboutImg2 from "../../../assets/Images/srv5.5.jpg";
 
 export default function ServiceContent2() {
   return (
@@ -71,7 +71,7 @@ export default function ServiceContent2() {
         <img
           src={aboutImg2}
           alt="Business Communication"
-          className="w-full h-[450px] object-cover rounded-xl"
+          className="w-full h-[530px] object-cover rounded-xl"
         />
       </div>
     </section>

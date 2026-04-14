@@ -1,7 +1,7 @@
 import React from "react";
 
-import aboutImg from "../../../assets/Images/home1.jpg";
-import aboutImg2 from "../../../assets/Images/hom2.jpg";
+import aboutImg from "../../../assets/Images/hom1.1.jpg";
+import aboutImg2 from "../../../assets/Images/home1.jpg";
 import aboutImg3 from "../../../assets/Images/hom3.jpg";
 
 export default function AboutUs() {
@@ -74,7 +74,7 @@ Businesses choose Voxentrax for its robust infrastructure, enterprise-grade secu
         <img
           src={aboutImg2}
           alt="DialInfinity Mission"
-          className="w-full h-[680px] object-cover rounded-xl mt-[40px]"
+          className="w-full h-[450px] object-cover rounded-xl mt-[40px]"
         />
       </div>
 

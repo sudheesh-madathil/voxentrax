@@ -1,7 +1,7 @@
 import React from "react";
 
-import aboutImg from "../../../assets/Images/hom4.jpg";
-import aboutImg2 from "../../../assets/Images/hom5.jpg";
+import aboutImg from "../../../assets/Images/hom4.4.jpg";
+import aboutImg2 from "../../../assets/Images/hom5.5.jpg";
 import aboutImg3 from "../../../assets/Images/hom6.jpg";
 
 export default function AboutUs() {

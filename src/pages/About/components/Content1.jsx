@@ -1,7 +1,7 @@
 import React from "react";
 
 import aboutImg from "../../../assets/Images/abt1.jpg";
-import aboutImg2 from "../../../assets/Images/abt2.jpg";
+import aboutImg2 from "../../../assets/Images/abt2.2.jpg";
 import aboutImg3 from "../../../assets/Images/abt3.jpg";
 
 export default function AboutUs() {
@@ -11,7 +11,7 @@ export default function AboutUs() {
       {/* MAIN HEADING */}
       <div className="max-w-6xl mx-auto text-center mb-16">
         <h1 className="text-4xl md:text-3xl font-default text-gray-400 mb-4">
-      Empowering Business Connectivity
+     Business Connectivity
           <span className="text-orange-500">  with Voxentrax</span>
         </h1>
 
